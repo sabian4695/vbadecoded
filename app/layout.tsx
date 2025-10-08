@@ -19,7 +19,7 @@ import logo from '../images/logo.png'
 
 import SettingsIcon from '@mui/icons-material/Settings';
 
-const primaryMain = '#65bae0'
+const primaryMain = '#5f8fa5ff'
 const secondaryMain = '#698679'
 
 const themes = {
@@ -32,6 +32,10 @@ const themes = {
       secondary: {
         main: secondaryMain
       },
+      // background: {
+      //   default: '#131313ff',
+      //   paper: '#4d4d4dff',
+      // }
     },
   }),
   lightTheme: createTheme({
@@ -43,6 +47,10 @@ const themes = {
       secondary: {
         main: secondaryMain
       },
+      background: {
+        default: '#e9f0f0ff',
+        paper: '#f0f3f3',
+      }
     },
   }),
 };
@@ -92,7 +100,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <AppBar component="nav" elevation={5} variant='outlined' sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+            <AppBar color='primary' component="nav" elevation={5} variant='outlined' sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
               <Toolbar variant='dense' sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center' }} component="a" href="/">
                   <Image
