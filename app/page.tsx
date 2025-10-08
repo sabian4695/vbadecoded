@@ -26,7 +26,7 @@ export default function Home() {
               height='300'
               width='300'
               src='/images/logo.png'
-              alt='logo'
+              alt='VBA Decoded Logo'
               loading="lazy"
             />
             <Typography

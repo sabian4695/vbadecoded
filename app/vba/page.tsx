@@ -19,7 +19,7 @@ export default function Home() {
               height='100'
               width='100'
               src='/images/vba.svg'
-              alt='logo'
+              alt='VBA logo'
               loading="lazy"
             />
             <Typography

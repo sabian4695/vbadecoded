@@ -21,7 +21,7 @@ export default function Home() {
               height='300'
               width='300'
               src='/images/ms_access_logo.svg'
-              alt='logo'
+              alt='Microsoft Access Logo'
               loading="lazy"
             />
             <Typography

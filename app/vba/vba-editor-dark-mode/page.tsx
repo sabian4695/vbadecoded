@@ -46,6 +46,7 @@ export default function Home() {
                   component="img"
                   src='/images/vba/vba-editor-dark-mode/darkMode_window.png'
                   sx={{ maxHeight: 600 }}
+                  alt="VBE Dark Mode"
                 />
               </Card>
             </Stack>

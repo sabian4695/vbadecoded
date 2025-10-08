@@ -108,7 +108,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     height='30'
                     width='30'
                     src='/images/logo.png'
-                    alt='logo'
+                    alt='VBA Decoded Logo'
                     loading="lazy"
                   />
                   <Typography
