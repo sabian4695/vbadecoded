@@ -14,49 +14,53 @@ import SearchIcon from '@mui/icons-material/Search';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import InsertLinkIcon from '@mui/icons-material/InsertLink';
 import Grow from '@mui/material/Grow';
+import Grid from '@mui/material/Grid';
+
+import logo from '../images/logo.png'
 
 export default function Home() {
   return (
-    <Stack sx={{ m: 2 }}>
-      <Grow in={true}>
-        <Box sx={{ p: 10 }}>
-          <Image
-            height='250'
-            width='250'
-            src='/images/logo.png'
-            alt='logo'
-            loading="lazy"
-          />
-          <Typography
-            sx={{ fontWeight: '100', letterSpacing: 7 }}
-            variant={'h3'}
-            color='text.secondary'
-          >
-            VBA Decoded
-          </Typography>
-        </Box>
-      </Grow>
-      <Box>
-        <Divider variant="middle" flexItem sx={{ m: 5 }} />
+    <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }} container>
+      <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
-          <Box>
-            <Typography variant="h3">
-              Welcome to VBA Decoded!
-            </Typography>
-            <Typography variant="h5">
-              We offer in depth and modern information for VBA.
+          <Box sx={{ p: 10, textAlign: 'center' }}>
+            <Image
+              height='300'
+              width='300'
+              src={logo}
+              alt='logo'
+              loading="lazy"
+            />
+            <Typography
+              sx={{ fontWeight: '100', letterSpacing: 7 }}
+              variant={'h3'}
+              color='text.secondary'
+            >
+              VBA Decoded
             </Typography>
           </Box>
         </Grow>
+      </Grid>
+
+      <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 5 }}>
-            <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
-              <Typography variant="h6">
-                Much of the content is focused on Microsoft Access VBA. But, there is also Excel, VB Scripts and even some Batch file contents thrown in there.
+            <Box>
+              <Typography variant="h3">
+                Welcome to VBA Decoded!
               </Typography>
-            </Stack>
+              <Typography variant="h5">
+                We offer in depth and modern information for VBA.
+              </Typography>
+            </Box>
+            <Typography variant="h6">
+              Much of the content is focused on Microsoft Access VBA. But, there is also Excel, VB Scripts and even some Batch file contents thrown in there.
+            </Typography>
           </Paper>
         </Grow>
+      </Grid>
+
+      <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 5 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
@@ -92,7 +96,8 @@ export default function Home() {
             </Stack>
           </Paper>
         </Grow>
-      </Box>
-    </Stack>
+      </Grid>
+
+    </Grid>
   );
 }

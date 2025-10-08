@@ -15,6 +15,7 @@ import MenuItem from '@mui/material/MenuItem';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import IconButton from '@mui/material/IconButton';
+import logo from '../images/logo.png'
 
 import SettingsIcon from '@mui/icons-material/Settings';
 
@@ -97,7 +98,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <Image
                     height='30'
                     width='30'
-                    src='/images/logo.png'
+                    src={logo}
                     alt='logo'
                     loading="lazy"
                   />
