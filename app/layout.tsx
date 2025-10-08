@@ -15,7 +15,8 @@ import MenuItem from '@mui/material/MenuItem';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import IconButton from '@mui/material/IconButton';
-import logo from '../images/logo.png'
+import Button from '@mui/material/Button';
+import Link from 'next/link'
 
 import SettingsIcon from '@mui/icons-material/Settings';
 
@@ -102,11 +103,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <CssBaseline />
             <AppBar color='primary' component="nav" elevation={5} variant='outlined' sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
               <Toolbar variant='dense' sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Box sx={{ display: 'flex', alignItems: 'center' }} component="a" href="/">
+                <Box sx={{ display: 'flex', alignItems: 'center' }} component={Link} href="/">
                   <Image
                     height='30'
                     width='30'
-                    src={logo}
+                    src='/images/logo.png'
                     alt='logo'
                     loading="lazy"
                   />
@@ -117,6 +118,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   >
                     VBA Decoded
                   </Typography>
+                </Box>
+                <Box>
+                  <Button component={Link} href='/ms-access-vba' variant='text' sx={{ mx: 1, color: 'white' }}>MS Access VBA</Button>
+                  <Button component={Link} href='/vba' variant='text' sx={{ mx: 1, color: 'white' }}>General VBA</Button>
                 </Box>
                 <IconButton
                   color='inherit'

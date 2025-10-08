@@ -16,8 +16,6 @@ import InsertLinkIcon from '@mui/icons-material/InsertLink';
 import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
 
-import logo from '../images/logo.png'
-
 export default function Home() {
   return (
     <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }} container>
@@ -27,7 +25,7 @@ export default function Home() {
             <Image
               height='300'
               width='300'
-              src={logo}
+              src='/images/logo.png'
               alt='logo'
               loading="lazy"
             />
