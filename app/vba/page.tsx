@@ -14,7 +14,7 @@ export default function Home() {
     <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }} container>
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
-          <Box sx={{ p: 10, textAlign: 'center' }}>
+          <Box sx={{ textAlign: 'center' }}>
             <Image
               height='100'
               width='100'

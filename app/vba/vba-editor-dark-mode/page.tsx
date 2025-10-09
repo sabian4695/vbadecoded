@@ -10,13 +10,15 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 
+const paperSx: any = { borderRadius: '10px', p: 1, m: 1 }
+
 export default function Home() {
   return (
     <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }} container>
 
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
-          <Box sx={{ p: 10, textAlign: 'center' }}>
+          <Box sx={{ textAlign: 'center' }}>
             <Typography variant="h3">
               VBA Editor Dark Mode
             </Typography>
@@ -32,7 +34,7 @@ export default function Home() {
 
       <Grid size={{ xs: 12 }}>
         <Grow in={true}>
-          <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 5 }}>
+          <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
               <Typography variant="h5" color='text.secondary'>Dark Mode?</Typography>
               <Typography>
@@ -56,7 +58,7 @@ export default function Home() {
 
       <Grid size={{ xs: 12 }}>
         <Grow in={true}>
-          <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 5 }}>
+          <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
               <Typography variant="h5" color='text.secondary'>First, head up to the Tools-Options area</Typography>
               <Typography>
@@ -95,7 +97,7 @@ export default function Home() {
 
       <Grid size={{ xs: 12 }}>
         <Grow in={true}>
-          <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 5 }}>
+          <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
             <Grid sx={{ alignItems: 'center', justifyContent: 'center', textAlign: 'center' }} spacing={1} container>
               <Grid size={{ xs: 12 }}>
                 <Typography variant="h5" color='text.secondary'>My Preferences</Typography>

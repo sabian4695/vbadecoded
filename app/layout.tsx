@@ -17,6 +17,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import Link from 'next/link'
+import MenuIcon from '@mui/icons-material/Menu';
 
 import SettingsIcon from '@mui/icons-material/Settings';
 
@@ -103,7 +104,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <CssBaseline />
             <AppBar color='primary' component="nav" elevation={5} variant='outlined' sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
               <Toolbar variant='dense' sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Box sx={{ display: 'flex', alignItems: 'center' }} component={Link} href="/">
+                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} component={Link} href="/">
                   <Image
                     height='30'
                     width='30'
@@ -119,7 +120,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     VBA Decoded
                   </Typography>
                 </Box>
-                <Box>
+                <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                   <Button component={Link} href='/ms-access-vba' variant='text' sx={{ mx: 1, color: 'white' }}>MS Access VBA</Button>
                   <Button component={Link} href='/vba' variant='text' sx={{ mx: 1, color: 'white' }}>General VBA</Button>
                 </Box>
@@ -127,7 +128,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   color='inherit'
                   onClick={handleClick}
                 >
-                  <SettingsIcon />
+                  <MenuIcon />
                 </IconButton>
               </Toolbar>
             </AppBar>
@@ -140,6 +141,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               open={openMenu}
               onClose={handleClose}
             >
+              <MenuItem sx={{ display: { xs: 'flex', md: 'none' } }}>
+                <Button component={Link} href='/ms-access-vba' variant='text' sx={{ mx: 1, color: 'black' }}>MS Access VBA</Button>
+              </MenuItem>
+              <MenuItem sx={{ display: { xs: 'flex', md: 'none' } }}>
+                <Button component={Link} href='/vba' variant='text' sx={{ mx: 1, color: 'black' }}>General VBA</Button>
+              </MenuItem>
               <MenuItem>
                 <Typography sx={{ mr: 5 }}>Theme</Typography>
                 <ToggleButtonGroup
@@ -151,7 +158,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <ToggleButton value="dark">Dark</ToggleButton>
                 </ToggleButtonGroup>
               </MenuItem>
-
             </Menu>
 
           </ThemeProvider>

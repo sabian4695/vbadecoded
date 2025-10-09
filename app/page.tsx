@@ -18,10 +18,10 @@ import Grid from '@mui/material/Grid';
 
 export default function Home() {
   return (
-    <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }} container>
+    <Grid sx={{ m: { xs: 0, md: 2 }, display: 'flex', alignItems: 'center', justifyContent: 'center' }} container>
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
-          <Box sx={{ p: 10, textAlign: 'center' }}>
+          <Box sx={{ textAlign: 'center' }}>
             <Image
               height='300'
               width='300'
