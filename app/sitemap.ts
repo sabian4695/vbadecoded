@@ -18,5 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: 'https://www.vbadecoded.com/ms-access-vba',
             lastModified: new Date(),
         },
+        {
+            url: 'https://www.vbadecoded.com/contact',
+            lastModified: new Date(),
+        },
     ]
 }

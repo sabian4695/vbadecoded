@@ -125,6 +125,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <Button component={Link} href='/ms-access-vba' variant='text' sx={{ mx: 1, color: 'white' }}>MS Access VBA</Button>
                   <Button component={Link} href='/vba' variant='text' sx={{ mx: 1, color: 'white' }}>General VBA</Button>
                 </Box>
+                <Button component={Link} href='/contact' variant='text' sx={{ mx: 1, color: 'white' }}>Contact</Button>
                 <IconButton
                   color='inherit'
                   onClick={handleClick}

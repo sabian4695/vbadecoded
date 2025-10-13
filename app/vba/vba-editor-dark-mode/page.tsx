@@ -36,6 +36,30 @@ export default function Home() {
         <Grow in={true}>
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
+              <Typography variant="h5" color='text.secondary'>The ugly VBE</Typography>
+              <Typography>
+                The out-of-the-box editing experience is a little hard to use in my opinion... and most others...
+              </Typography>
+              <Typography>
+                Not only is there no 'Dark Mode' switch built in, but even the font is hard to read. Exhibit A, the below screenshot.
+              </Typography>
+              <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
+                <CardMedia
+                  component="img"
+                  src='/images/vba/vba-editor-dark-mode/lightMode_window.png'
+                  sx={{ maxHeight: 300 }}
+                  alt="VBE Dark Mode"
+                />
+              </Card>
+            </Stack>
+          </Paper>
+        </Grow>
+      </Grid>
+
+      <Grid size={{ xs: 12 }}>
+        <Grow in={true}>
+          <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
+            <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
               <Typography variant="h5" color='text.secondary'>Dark Mode?</Typography>
               <Typography>
                 This is super easy to set up, but not quite the simple checkbox that I would want it to be.
