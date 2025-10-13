@@ -13,7 +13,7 @@ import { ListItemButton } from "@mui/material";
 
 export default function Home() {
   return (
-    <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }} container>
+    <Grid sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} container>
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
           <Box sx={{ textAlign: 'center' }}>
@@ -21,6 +21,7 @@ export default function Home() {
               height='300'
               width='300'
               src='/images/ms_access_logo.svg'
+              style={{ width: '150px', height: 'auto' }}
               alt='Microsoft Access Logo'
               loading="lazy"
             />

@@ -11,13 +11,14 @@ import Button from '@mui/material/Button';
 
 export default function Home() {
   return (
-    <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }} container>
+    <Grid sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} container>
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
           <Box sx={{ textAlign: 'center' }}>
             <Image
               height='100'
               width='100'
+              style={{ width: '150px', height: 'auto' }}
               src='/images/vba.svg'
               alt='VBA logo'
               loading="lazy"

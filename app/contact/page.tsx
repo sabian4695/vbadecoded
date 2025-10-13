@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 
 export default function Home() {
   return (
-    <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }} container>
+    <Grid sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} container>
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
@@ -26,7 +26,7 @@ export default function Home() {
             <Typography variant="h6" sx={{ mt: 5 }}>
               Contact us here:
             </Typography>
-            <Button href='mailto:contactvbadecoded@gmail.com' variant='contained' sx={{ mx: 1 }}>contactvbadecoded@gmail.com</Button>
+            <Button href='mailto:contactvbadecoded@gmail.com' variant='contained'>contactvbadecoded@gmail.com</Button>
           </Paper>
         </Grow>
       </Grid>
