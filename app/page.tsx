@@ -25,7 +25,8 @@ export default function Home() {
             <Image
               height='300'
               width='300'
-              src='/images/logo.png'
+              style={{ width: '400px', height: 'auto' }}
+              src='/images/logo.svg'
               alt='VBA Decoded Logo'
               loading="lazy"
             />

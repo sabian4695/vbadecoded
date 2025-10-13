@@ -37,7 +37,7 @@ export default function Home() {
 
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
-          <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 5 }}>
+          <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
             <Box>
               <Typography variant="h3">
                 My bread and butter!
@@ -55,7 +55,7 @@ export default function Home() {
 
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
-          <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 5 }}>
+          <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
               <Typography variant="h5" color='text.secondary'>All General VBA Articles:</Typography>
               Nothing Here yet!

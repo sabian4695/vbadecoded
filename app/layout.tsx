@@ -108,7 +108,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <Image
                     height='30'
                     width='30'
-                    src='/images/logo.png'
+                    style={{ width: '40px', height: 'auto' }}
+                    src='/images/logo.svg'
                     alt='VBA Decoded Logo'
                     loading="lazy"
                   />
@@ -142,10 +143,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               onClose={handleClose}
             >
               <MenuItem sx={{ display: { xs: 'flex', md: 'none' } }}>
-                <Button component={Link} href='/ms-access-vba' variant='text' sx={{ mx: 1, color: 'black' }}>MS Access VBA</Button>
+                <Button component={Link} href='/ms-access-vba' variant='text' sx={{ mx: 1, color: 'white' }}>MS Access VBA</Button>
               </MenuItem>
               <MenuItem sx={{ display: { xs: 'flex', md: 'none' } }}>
-                <Button component={Link} href='/vba' variant='text' sx={{ mx: 1, color: 'black' }}>General VBA</Button>
+                <Button component={Link} href='/vba' variant='text' sx={{ mx: 1, color: 'white' }}>General VBA</Button>
               </MenuItem>
               <MenuItem>
                 <Typography sx={{ mr: 5 }}>Theme</Typography>
