@@ -14,7 +14,7 @@ const paperSx: any = { borderRadius: '10px', p: 1, m: 1 }
 
 export default function Home() {
   return (
-    <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }} container>
+    <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth:'1200px', justifySelf: 'center' }} spacing={3} container>
 
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>

@@ -18,7 +18,7 @@ import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import Link from 'next/link'
 import MenuIcon from '@mui/icons-material/Menu';
-
+import YouTubeIcon from '@mui/icons-material/YouTube';
 import SettingsIcon from '@mui/icons-material/Settings';
 
 const primaryMain = '#5f8fa5ff'
@@ -136,6 +136,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             <Toolbar />
             {children}
+
+            <Box sx={{display: 'block', m:2, alignItems: 'center', textAlign: 'center'}}>
+              <Typography>Have a question? See an error?</Typography>
+              <IconButton
+                  color='inherit'
+                  href='https://www.youtube.com/@VBADecoded'
+                >
+                  <YouTubeIcon />
+                </IconButton>
+              <Typography>
+                    &copy;All Rights Reserved.
+              </Typography>
+            </Box>
 
             <Menu
               anchorEl={anchorEl}
