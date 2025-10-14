@@ -19,7 +19,7 @@ import Button from '@mui/material/Button';
 import Link from 'next/link'
 import MenuIcon from '@mui/icons-material/Menu';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import SettingsIcon from '@mui/icons-material/Settings';
+import Grid from '@mui/material/Grid';
 
 const primaryMain = '#5f8fa5ff'
 const secondaryMain = '#698679'
@@ -116,14 +116,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <Typography
                     variant="h6"
                     component="div"
-                    sx={{ fontWeight: '200', flexGrow: 1, ml: 1 }}
+                    sx={{ fontWeight: '200', flexGrow: 1 }}
                   >
                     VBA Decoded
                   </Typography>
                 </Box>
                 <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                  <Button component={Link} href='/ms-access-vba' variant='text' sx={{ mx: 1, color: 'inherit' }}>MS Access VBA</Button>
-                  <Button component={Link} href='/vba' variant='text' sx={{ mx: 1, color: 'inherit' }}>General VBA</Button>
+                  <Button component={Link} href='/ms-access-vba' variant='text' color='inherit' sx={{ mx: 1 }}>MS Access VBA</Button>
+                  <Button component={Link} href='/vba' variant='text' color='inherit' sx={{ mx: 1 }}>General VBA</Button>
                 </Box>
                 <IconButton
                   color='inherit'
@@ -137,32 +137,55 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Toolbar />
             {children}
 
-            <Box sx={{display: 'block', m:2, alignItems: 'center', textAlign: 'center'}}>
-              <Typography>Have a question? See an error?</Typography>
-              <IconButton
+            <Grid sx={{ p: 5, display: 'flex', alignItems: 'center', textAlign: 'center', backgroundColor: 'primary.dark' }} spacing={3} container>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Typography>Have a question? See an error?</Typography>
+                <Button component={Link} href='/contact' variant='outlined' color='inherit' sx={{ m: 1 }}>Contact</Button>
+              </Grid>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Typography>Check out our YouTube channel for video tutorials!</Typography>
+                <IconButton
                   color='inherit'
                   href='https://www.youtube.com/@VBADecoded'
                 >
                   <YouTubeIcon />
                 </IconButton>
-              <Typography>
-                    &copy;All Rights Reserved.
-              </Typography>
-            </Box>
+              </Grid>
+              <Grid size={{ xs: 12 }}>
+                <Image
+                  height='300'
+                  width='300'
+                  style={{ width: '200px', height: 'auto' }}
+                  src='/images/logo.svg'
+                  alt='VBA Decoded Logo'
+                  loading="lazy"
+                />
+                <Typography
+                  variant="h6"
+                  sx={{ fontWeight: '200' }}>
+                  VBA Decoded
+                </Typography>
+              </Grid>
+              <Grid size={{ xs: 12 }}>
+                <Typography>
+                  &copy;All Rights Reserved.
+                </Typography>
+              </Grid>
+            </Grid>
 
             <Menu
               anchorEl={anchorEl}
               open={openMenu}
               onClose={handleClose}
             >
-              <MenuItem sx={{ display: { xs: 'flex', md: 'none' } }}>
-                <Button component={Link} href='/ms-access-vba' variant='text' sx={{ mx: 1, color: 'inherit' }}>MS Access VBA</Button>
+              <MenuItem component={Link} href='/ms-access-vba' sx={{ display: { xs: 'flex', md: 'none' } }}>
+                MS Access VBA
               </MenuItem>
-              <MenuItem sx={{ display: { xs: 'flex', md: 'none' } }}>
-                <Button component={Link} href='/vba' variant='text' sx={{ mx: 1, color: 'inherit' }}>General VBA</Button>
+              <MenuItem component={Link} href='/vba' sx={{ display: { xs: 'flex', md: 'none' } }}>
+                General VBA
               </MenuItem>
-              <MenuItem>
-                <Button component={Link} href='/contact' variant='text' sx={{ mx: 1, color: 'inherit' }}>Contact</Button>
+              <MenuItem component={Link} href='/contact'>
+                Contact
               </MenuItem>
               <MenuItem>
                 <Typography sx={{ mr: 5 }}>Theme</Typography>
@@ -170,6 +193,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   value={themeMode}
                   exclusive
                   onChange={handleThemeClick}
+                  size='small'
                 >
                   <ToggleButton value="light">Light</ToggleButton>
                   <ToggleButton value="dark">Dark</ToggleButton>

@@ -18,7 +18,7 @@ import Grid from '@mui/material/Grid';
 
 export default function Home() {
   return (
-    <Grid sx={{ m: { xs: 0, md: 2 }, display: 'flex', alignItems: 'center', justifyContent: 'center' }} container>
+    <Grid sx={{ m: { xs: 0, md: 2 }, display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} container>
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
           <Box sx={{ textAlign: 'center' }}>

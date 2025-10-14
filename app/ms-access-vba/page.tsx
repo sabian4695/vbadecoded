@@ -13,7 +13,7 @@ import { ListItemButton } from "@mui/material";
 
 export default function Home() {
   return (
-    <Grid sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} container>
+    <Grid sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} container>
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
           <Box sx={{ textAlign: 'center' }}>
@@ -58,7 +58,7 @@ export default function Home() {
         <Grow in={true}>
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
-              <Typography variant="h5" color='text.secondary'>All General VBA Articles:</Typography>
+              <Typography variant="h5" color='text.secondary'>All MS Access VBA Articles:</Typography>
               Nothing Here yet!
               {/* <Button href='/vba/vba-editor-dark-mode' variant='text' component={Link}>
                 VBA Editor Dark Mode
