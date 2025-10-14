@@ -15,11 +15,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
             lastModified: new Date(),
         },
         {
+            url: 'https://www.vbadecoded.com/contact',
+            lastModified: new Date(),
+        },
+        {
             url: 'https://www.vbadecoded.com/ms-access-vba',
             lastModified: new Date(),
         },
         {
-            url: 'https://www.vbadecoded.com/contact',
+            url: 'https://www.vbadecoded.com/ms-access-vba/encrypt-database',
             lastModified: new Date(),
         },
     ]
