@@ -4,12 +4,8 @@ import Typography from "@mui/material/Typography";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
 import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
-import { ListItemButton } from "@mui/material";
 
 export default function Home() {
   return (
@@ -67,7 +63,6 @@ export default function Home() {
           </Paper>
         </Grow>
       </Grid>
-
     </Grid>
   );
 }
