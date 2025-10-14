@@ -11,10 +11,10 @@ import Button from '@mui/material/Button';
 
 export default function Home() {
   return (
-    <Grid sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} container>
-      <Grid size={{ xs: 12, md: 6 }}>
+    <Grid sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} spacing={3} container>
+      <Grid size={{ xs: 12, md: 6 }} >
         <Grow in={true}>
-          <Box sx={{ textAlign: 'center' }}>
+          <Box sx={{ textAlign: 'center', minHeight: '500px', alignContent: 'center' }}>
             <Image
               height='100'
               width='100'
