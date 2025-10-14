@@ -18,14 +18,14 @@ import Grid from '@mui/material/Grid';
 
 export default function Home() {
   return (
-    <Grid sx={{ m: { xs: 0, md: 2 }, display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} container>
+    <Grid sx={{ m: { xs: 0, md: 2 }, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', justifySelf: 'center' }} container>
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
           <Box sx={{ textAlign: 'center' }}>
             <Image
               height='300'
               width='300'
-              style={{ width: '400px', height: 'auto' }}
+              style={{ width: '300px', height: 'auto' }}
               src='/images/logo.svg'
               alt='VBA Decoded Logo'
               loading="lazy"

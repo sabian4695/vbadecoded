@@ -108,7 +108,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <Image
                     height='30'
                     width='30'
-                    style={{ width: '40px', height: 'auto' }}
+                    style={{ width: '40px', height: 'auto', margin: 5 }}
                     src='/images/logo.svg'
                     alt='VBA Decoded Logo'
                     loading="lazy"
@@ -135,7 +135,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </AppBar>
 
             <Toolbar />
-            {children}
+            <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+              {children}
+            </Box>
 
             <Grid sx={{ p: 5, display: 'flex', alignItems: 'center', textAlign: 'center', backgroundColor: 'primary.dark' }} spacing={3} container>
               <Grid size={{ xs: 12, md: 6 }}>
