@@ -14,7 +14,7 @@ const paperSx: any = { borderRadius: '10px', p: 1, m: 1 }
 
 export default function Home() {
   return (
-    <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth:'1200px', justifySelf: 'center' }} spacing={3} container>
+    <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} spacing={3} container>
 
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
@@ -37,10 +37,8 @@ export default function Home() {
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
               <Typography variant="h5" color='text.secondary'>The ugly VBE</Typography>
-              <Typography>
+              <Typography sx={{ maxWidth: '800px', p: 2 }}>
                 The out-of-the-box editing experience is a little hard to use in my opinion... and most others...
-              </Typography>
-              <Typography>
                 Not only is there no 'Dark Mode' switch built in, but even the font is hard to read. Exhibit A, the below screenshot.
               </Typography>
               <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
@@ -61,10 +59,8 @@ export default function Home() {
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
               <Typography variant="h5" color='text.secondary'>Dark Mode?</Typography>
-              <Typography>
+              <Typography sx={{ maxWidth: '800px', p: 2 }}>
                 This is super easy to set up, but not quite the simple checkbox that I would want it to be.
-              </Typography>
-              <Typography>
                 Here's what my VBE looks like. You can see not quite everything is dark-themed. The toolbars are still light even with these settings applied.
               </Typography>
               <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
@@ -105,13 +101,9 @@ export default function Home() {
                   sx={{ maxHeight: 600 }}
                 />
               </Card>
-              <Typography>
+              <Typography sx={{ maxWidth: '800px', p: 2 }}>
                 All you need to do is edit each line item in the Code Colors area, using the Foreground and Background color dropdowns.
-              </Typography>
-              <Typography>
                 This is also the area where you can change the font size and type if you so desire.
-              </Typography>
-              <Typography>
                 If you want to know my preferences, see below, I took a screenshot of each item.
               </Typography>
             </Stack>

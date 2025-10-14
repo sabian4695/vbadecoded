@@ -122,7 +122,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </Typography>
                 </Box>
                 <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                  <Button component={Link} href='/ms-access-vba' variant='text' color='inherit' sx={{ mx: 1 }}>MS Access VBA</Button>
+                  <Button component={Link} href='/ms-access-vba' variant='text' color='inherit' sx={{ mx: 1 }}>MS Access + VBA</Button>
                   <Button component={Link} href='/vba' variant='text' color='inherit' sx={{ mx: 1 }}>General VBA</Button>
                 </Box>
                 <IconButton
@@ -139,7 +139,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               {children}
             </Box>
 
-            <Grid sx={{ p: 5, display: 'flex', alignItems: 'center', textAlign: 'center', backgroundColor: 'primary.dark' }} spacing={3} container>
+            <Grid sx={{ p: 5, mt: 15, display: 'flex', alignItems: 'center', textAlign: 'center', backgroundColor: 'primary.dark' }} spacing={3} container>
               <Grid size={{ xs: 12, md: 6 }}>
                 <Typography>Have a question? See an error?</Typography>
                 <Button component={Link} href='/contact' variant='outlined' color='inherit' sx={{ m: 1 }}>Contact</Button>
@@ -181,7 +181,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               onClose={handleClose}
             >
               <MenuItem component={Link} href='/ms-access-vba' sx={{ display: { xs: 'flex', md: 'none' } }}>
-                MS Access VBA
+                MS Access + VBA
               </MenuItem>
               <MenuItem component={Link} href='/vba' sx={{ display: { xs: 'flex', md: 'none' } }}>
                 General VBA
