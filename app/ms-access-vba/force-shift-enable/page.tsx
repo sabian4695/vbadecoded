@@ -7,7 +7,6 @@ import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import CodeBlock from "@/misc/globalFunctions";
 
 const paperSx: any = { borderRadius: '10px', p: 1, m: 1 }
 
@@ -42,7 +41,6 @@ export default function Home() {
                 You might also encrypt to simply password protect your front end so not anyone can open it.
                 (though I think doing this through code is a more modern and editable approach)
               </Typography>
-              <CodeBlock text="dim this test" langChoice="vba" />
             </Stack>
           </Paper>
         </Grow>
