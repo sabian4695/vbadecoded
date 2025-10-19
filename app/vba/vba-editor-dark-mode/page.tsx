@@ -16,18 +16,28 @@ export default function Home() {
   return (
     <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} spacing={3} container>
 
-      <Grid size={{ xs: 12, md: 6 }}>
+      <Grid size={{ xs: 12 }}>
         <Grow in={true}>
           <Box sx={{ textAlign: 'center' }}>
-            <Typography variant="h3">
+            <Typography variant="h3" sx={{ m: 3 }}>
               VBA Editor Dark Mode
             </Typography>
-            <Typography variant="h5">
+            <Typography variant="h5" sx={{ mx: 3 }}>
               Here's how you set up dark mode on the default IDE for Visual Basic (VBA Editor)
             </Typography>
-            <Typography variant="subtitle1">
+            <Typography variant="subtitle2">
               Written by Jacob, October 2025
             </Typography>
+          </Box>
+        </Grow>
+      </Grid>
+
+      <Grid size={{ xs: 12 }}>
+        <Grow in={true}>
+          <Box sx={{ textAlign: 'center' }}>
+            <Button href='https://youtu.be/YRpptzMkuHc' variant='outlined' color='secondary' target='_blank' component={Link}>
+              Click here to watch the YouTube video!
+            </Button>
           </Box>
         </Grow>
       </Grid>
