@@ -21,7 +21,7 @@ export default function Home() {
               Encrypt an MS Access Database
             </Typography>
             <Typography variant="h5">
-              Let\'s secure this thing.
+              Let's secure this thing.
             </Typography>
             <Typography variant="subtitle1">
               Written by Jacob, October 2025
