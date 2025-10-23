@@ -5,7 +5,7 @@ import vbnet from 'highlight.js/lib/languages/vbnet'
 import Chip from '@mui/material/Chip';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
-import 'highlight.js/styles/atom-one-dark.css';
+import '../misc/atom-one-dark.css';
 
 hljs.registerLanguage('vbnet', vbnet);
 
