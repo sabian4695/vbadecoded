@@ -32,8 +32,8 @@ export default function CodeBlock(children: childrenType) {
     return (
         <>
             <Paper
-                elevation={2}
-                sx={{ borderRadius: '10px', p: 1, m: 1, alignSelf: 'center', justifySelf: 'center' }}
+                elevation={1}
+                sx={{ borderRadius: '10px', p: 1, pr: 4, m: 1, alignSelf: 'center', justifySelf: 'center' }}
             >
                 <Chip
                     clickable

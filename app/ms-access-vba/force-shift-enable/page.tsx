@@ -6,6 +6,10 @@ import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
+import Alert from '@mui/material/Alert';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import Avatar from '@mui/material/Avatar';
 
 import CodeBlock from '../../../misc/codeBlock'
 
@@ -13,7 +17,7 @@ import CodeBlock from '../../../misc/codeBlock'
 const paperSx: any = { borderRadius: '10px', p: 1, m: 1 }
 
 export default function Home() {
-  let code = `
+  let code0 = `
   Function enableShift() as string
   
   Dim databaseLocation as String
@@ -29,20 +33,27 @@ export default function Home() {
 
 
   return (
-    <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} spacing={3} container>
+    <Grid
+      sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }}
+      spacing={3}
+      container
+    >
 
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
           <Box sx={{ textAlign: 'center' }}>
             <Typography variant="h3">
-              Encrypt an MS Access Database
+              Force Shift-Enable a Microsoft Access Database
             </Typography>
             <Typography variant="h5">
-              Let's secure this thing.
+              Let's bust it open!
             </Typography>
-            <Typography variant="subtitle1">
-              Written by Jacob, October 2025
-            </Typography>
+            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <Typography variant="subtitle1">
+                Written by Jacob, October 2025
+              </Typography>
+              <Avatar alt="Jacob Brown" src="/images/jacob_brown.jpg" />
+            </Box>
           </Box>
         </Grow>
       </Grid>
@@ -51,12 +62,40 @@ export default function Home() {
         <Grow in={true}>
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
-              <Typography variant="h5" color='text.secondary'>Why Encrypt?</Typography>
+              <Typography variant="h5" color='text.secondary'>What is Shift-Enabling?</Typography>
               <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                There are many reasons to encrypt an MS Access Database.
-                Personally, I only ever do it to protect my back ends user tampering and make sure I'm in control of all direct data access.
-                You might also encrypt to simply password protect your front end so not anyone can open it.
-                (though I think doing this through code is a more modern and editable approach)
+                I'm assuming you know what shift-enabling and shift-disabling mean for an MS Access Database.
+                Just so we're clear though, it's that "special keys" thing the allows to to bypass the startup form
+                and any startup macros from running. It basically opens a database bypassing all the protective procedures.
+              </Typography>
+              <Alert sx={{ maxWidth: '800px' }} severity="warning">Important Note here: this method only applies to .accdb files and similar.
+                It does NOT work on .accde files. Those are fully compiled executable-only databases.
+                You cannot edit or disable startup procedures on these unless you used a very unique setup.</Alert>
+            </Stack>
+          </Paper>
+        </Grow>
+      </Grid>
+
+      <Grid size={{ xs: 12 }}>
+        <Grow in={true}>
+          <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
+            <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
+              <Typography variant="h5" color='text.secondary'>Tow Methods</Typography>
+              <Typography sx={{ maxWidth: '800px', p: 2 }}>
+                There are two main methods I am exploring here.
+              </Typography>
+              <List
+                sx={{ maxWidth: 600, bgcolor: 'background.paper' }}
+              >
+                <ListItem>
+                  1. Use another MS Access Database (or any other MS product)
+                </ListItem>
+                <ListItem>
+                  2. Use a vbScipt
+                </ListItem>
+              </List>
+              <Typography sx={{ maxWidth: '800px', p: 2 }}>
+                The method / code is essentially the same.
               </Typography>
             </Stack>
           </Paper>
@@ -66,7 +105,7 @@ export default function Home() {
       <Grid size={{ xs: 12 }}>
         <Grow in={true}>
           <div>
-            <CodeBlock code={code} />
+            <CodeBlock code={code0} />
           </div>
         </Grow>
       </Grid>
@@ -75,28 +114,24 @@ export default function Home() {
         <Grow in={true}>
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
-              <Typography variant="h5" color='text.secondary'>First, we need to open the database in 'Exclusive' mode</Typography>
+              <Typography variant="h5" color='text.secondary'>METHOD 1</Typography>
               <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                There are a few ways to do this (using a command-line switch in cmd or a shortcut is one) but we are going to do this in native MS Access.
-                Go ahead and go to 'File' - 'Open' - 'Browse'
+                Method 1 is using another MS Access Database (or Excel, PowerPoint, doesn't really matter).
               </Typography>
-              <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                <CardMedia
-                  component="img"
-                  src='/images/ms-access-vba/encrypt-database/howTo_0.png'
-                  sx={{ maxHeight: 600 }}
-                />
-              </Card>
-              <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                The file selector should appear. Now, find your database, click the little arrow next to 'Open' and select 'Open Exclusive'
-              </Typography>
-              <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                <CardMedia
-                  component="img"
-                  src='/images/ms-access-vba/encrypt-database/howTo_1.png'
-                  sx={{ maxHeight: 600 }}
-                />
-              </Card>
+              <List
+                sx={{ maxWidth: 600, bgcolor: 'background.paper' }}
+              >
+                <ListItem>
+                  1. Open the VB Editor (in this other database).
+                </ListItem>
+                <ListItem>
+                  2. Paste the below code into a module.
+                </ListItem>
+                <ListItem>
+                  3. Run the function!
+                </ListItem>
+              </List>
+              <CodeBlock code={code0} />
             </Stack>
           </Paper>
         </Grow>
