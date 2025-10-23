@@ -21,7 +21,7 @@ export default function Home() {
               Encrypt an MS Access Database
             </Typography>
             <Typography variant="h5" sx={{ mx: 3 }}>
-              Let\'s secure this thing.
+              Let's secure this thing.
             </Typography>
             <Typography variant="subtitle2">
               Written by Jacob, October 2025
@@ -37,7 +37,7 @@ export default function Home() {
               <Typography variant="h5" color='text.secondary'>Why Encrypt?</Typography>
               <Typography sx={{ maxWidth: '800px', p: 2 }}>
                 There are many reasons to encrypt an MS Access Database.
-                Personally, I only ever do it to protect my back ends user tampering and make sure I\'m in control of all direct data access.
+                Personally, I only ever do it to protect my back ends user tampering and make sure I'm in control of all direct data access.
                 You might also encrypt to simply password protect your front end so not anyone can open it.
                 (though I think doing this through code is a more modern and editable approach)
               </Typography>

@@ -4,8 +4,7 @@ import hljs from 'highlight.js/lib/core';
 import vbnet from 'highlight.js/lib/languages/vbnet'
 import Chip from '@mui/material/Chip';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-
-import '../misc/atom-one-dark.css';
+import Paper from '@mui/material/Paper';
 
 hljs.registerLanguage('vbnet', vbnet);
 
@@ -31,17 +30,23 @@ export default function CodeBlock(children: childrenType) {
         hljs.initHighlighting();
     }, []);
     return (
-        <div>
-            <Chip
-                clickable
-                variant="outlined"
-                label={isCopied ? 'Copied!' : 'Copy to Clipboard'}
-                onClick={handleCopy}
-                icon={<ContentCopyIcon />}
-            />
-            <pre><code className="vbscript">
-                {children.code}
-            </code></pre>
-        </div>
+        <>
+            <Paper
+                elevation={2}
+                sx={{ borderRadius: '10px', p: 1, m: 1, alignSelf: 'center', justifySelf: 'center' }}
+            >
+                <Chip
+                    clickable
+                    variant="outlined"
+                    label={isCopied ? 'Copied!' : 'Copy to Clipboard'}
+                    onClick={handleCopy}
+                    icon={<ContentCopyIcon />}
+                    sx={{ mt: 1, ml: 1 }}
+                />
+                <pre><code className="vbscript">
+                    {children.code}
+                </code></pre>
+            </Paper>
+        </>
     )
 }
