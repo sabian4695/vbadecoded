@@ -1,4 +1,3 @@
-import React from "react";
 import Typography from "@mui/material/Typography";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -8,9 +7,27 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 
+import CodeBlock from '../../../misc/codeBlock'
+
+
 const paperSx: any = { borderRadius: '10px', p: 1, m: 1 }
 
 export default function Home() {
+  let code = `
+  Function enableShift() as string
+  
+  Dim databaseLocation as String
+  Dim db, acc
+  
+  Set acc = CreateObject("Access.Application")
+  set db = acc.DBEngine.OpenDatabase(devLoc, False, False)
+
+  db.Properties("AllowByPassKey") = True
+
+  End Function
+  `
+
+
   return (
     <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} spacing={3} container>
 
@@ -42,6 +59,14 @@ export default function Home() {
                 (though I think doing this through code is a more modern and editable approach)
               </Typography>
             </Stack>
+          </Paper>
+        </Grow>
+      </Grid>
+
+      <Grid size={{ xs: 12 }}>
+        <Grow in={true}>
+          <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
+            <CodeBlock code={code} />
           </Paper>
         </Grow>
       </Grid>

@@ -15,9 +15,11 @@
     "@mui/icons-material": "^7.3.4",
     "@mui/material": "^7.3.4",
     "@mui/material-nextjs": "^7.3.3",
+    "highlight.js": "^11.11.1",
     "next": "15.5.4",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "sugar-high": "^0.9.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
