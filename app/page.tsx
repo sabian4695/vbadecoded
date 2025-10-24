@@ -4,7 +4,6 @@ import Typography from "@mui/material/Typography";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
-import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -15,6 +14,8 @@ import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import InsertLinkIcon from '@mui/icons-material/InsertLink';
 import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
+import ListItemButton from '@mui/material/ListItemButton';
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -49,7 +50,7 @@ export default function Home() {
                 Welcome to VBA Decoded!
               </Typography>
               <Typography variant="h5">
-                We offer in depth and modern information for VBA.
+                Your in depth and modern resource for VBA.
               </Typography>
             </Box>
             <Typography variant="h6">
@@ -63,33 +64,33 @@ export default function Home() {
         <Grow in={true}>
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 5 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
-              <Typography variant="h5" color='text.secondary'>Lots of content types!</Typography>
+              <Typography variant="h5" color='text.secondary'>Content!</Typography>
               <Box>
                 <List sx={{ bgcolor: 'background.paper' }}>
-                  <ListItem>
+                  <ListItemButton href='/vba'>
                     <ListItemAvatar>
                       <Avatar>
                         <AccountTreeIcon />
                       </Avatar>
                     </ListItemAvatar>
-                    <ListItemText primary="Articles" secondary="Use the site navigation / search to find articles!" />
-                  </ListItem>
-                  <ListItem>
+                    <ListItemText primary="MS Access Articles" secondary="Find information on MS Access Databases" />
+                  </ListItemButton>
+                  <ListItemButton href='/ms-access-vba'>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <AccountTreeIcon />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="VBA Articles" secondary="Find information on VBA" />
+                  </ListItemButton>
+                  <ListItemButton href='https://www.youtube.com/@VBADecoded'>
                     <ListItemAvatar>
                       <Avatar>
                         <InsertLinkIcon />
                       </Avatar>
                     </ListItemAvatar>
-                    <ListItemText primary="YouTube" secondary="Lots of the articles include YouTube videos showing the process." />
-                  </ListItem>
-                  <ListItem>
-                    <ListItemAvatar>
-                      <Avatar>
-                        <SearchIcon />
-                      </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText primary="Products" secondary="There are some products we offer that can help speed up your process." />
-                  </ListItem>
+                    <ListItemText primary="YouTube" secondary="Lots of the articles include YouTube videos showing the process" />
+                  </ListItemButton>
                 </List>
               </Box>
             </Stack>
