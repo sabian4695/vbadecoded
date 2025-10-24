@@ -153,7 +153,7 @@ MsgBox "Done!"`
               <Typography variant="h5" color='text.secondary'>What is Shift-Enabling?</Typography>
               <Typography sx={{ maxWidth: '800px', p: 2 }}>
                 I'm assuming you know what shift-enabling and shift-disabling mean for an MS Access Database.
-                Just so we're clear though, it's that "special keys" thing the allows to to bypass the startup form
+                Just so we're clear though, it's that "special keys" thing that allows you to bypass the startup form
                 and any startup macros from running. It basically opens a database bypassing all the protective procedures.
               </Typography>
               <Alert sx={{ maxWidth: '800px' }} severity="warning">Important Note here: this method only applies to .accdb files and similar.
