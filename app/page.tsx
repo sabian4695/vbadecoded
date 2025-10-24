@@ -64,7 +64,7 @@ export default function Home() {
               <Typography variant="h5" color='text.secondary'>Content!</Typography>
               <Box>
                 <List sx={{ bgcolor: 'background.paper' }}>
-                  <ListItemButton href='/vba'>
+                  <ListItemButton href='/ms-access-vba'>
                     <ListItemAvatar>
                       <Avatar>
                         <AccountTreeIcon />
@@ -72,7 +72,7 @@ export default function Home() {
                     </ListItemAvatar>
                     <ListItemText primary="MS Access Articles" secondary="Find information on MS Access Databases" />
                   </ListItemButton>
-                  <ListItemButton href='/ms-access-vba'>
+                  <ListItemButton href='/vba'>
                     <ListItemAvatar>
                       <Avatar>
                         <AccountTreeIcon />
