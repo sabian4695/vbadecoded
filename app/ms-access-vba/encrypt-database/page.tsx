@@ -7,6 +7,7 @@ import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
+import Avatar from '@mui/material/Avatar';
 
 const paperSx: any = { borderRadius: '10px', p: 1, m: 1 }
 
@@ -23,9 +24,12 @@ export default function Home() {
             <Typography variant="h5" sx={{ mx: 3 }}>
               Let's secure this thing.
             </Typography>
-            <Typography variant="subtitle2">
-              Written by Jacob, October 2025
-            </Typography>
+            <Stack direction='row' spacing={1} sx={{ alignItems: 'center', justifyContent: 'center' }}>
+              <Typography variant="subtitle1">
+                Written by Jacob, October 2025
+              </Typography>
+              <Avatar alt="Jacob Brown" src="/images/jacob_brown.jpg" />
+            </Stack>
           </Box>
         </Grow>
       </Grid>

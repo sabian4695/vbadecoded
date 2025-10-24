@@ -33,7 +33,7 @@ export default function CodeBlock(children: childrenType) {
         <>
             <Paper
                 elevation={1}
-                sx={{ borderRadius: '10px', p: 1, pr: 4, m: 1, alignSelf: 'center', justifySelf: 'center' }}
+                sx={{ maxWidth: '100%', borderRadius: '10px', p: 2, m: 1, alignSelf: 'center', justifySelf: 'center' }}
             >
                 <Chip
                     clickable
@@ -41,7 +41,7 @@ export default function CodeBlock(children: childrenType) {
                     label={isCopied ? 'Copied!' : 'Copy to Clipboard'}
                     onClick={handleCopy}
                     icon={<ContentCopyIcon />}
-                    sx={{ mt: 1, ml: 1 }}
+                    sx={{ m: 0.5 }}
                 />
                 <pre><code className="vbscript">
                     {children.code}

@@ -17,19 +17,94 @@ import CodeBlock from '../../../misc/codeBlock'
 const paperSx: any = { borderRadius: '10px', p: 1, m: 1 }
 
 export default function Home() {
-  let code0 = `
-  Function enableShift() as string
+  let codeOg = `Function enableShift()
   
-  Dim databaseLocation as String
-  Dim db, acc
+'initialize variables
+Dim databaseLocation as String
+Dim db, acc
+
+'specify database location
+Dim databaseLocation as String
+databaseLocation = "\\\\users\\brownj\\testdatabase.accdb"
   
-  Set acc = CreateObject("Access.Application")
-  set db = acc.DBEngine.OpenDatabase(devLoc, False, False)
+'open the database as an Access object
+Set acc = CreateObject("Access.Application")
 
-  db.Properties("AllowByPassKey") = True
+'open the "database" now within that object
+Set db = acc.DBEngine.OpenDatabase(databaseLocation, False, False)
 
-  End Function
-  `
+'run the command
+db.Properties("AllowByPassKey") = True
+
+'clear your objects (otherwise you'll have to force-close some tasks)
+db.Close
+Set db = Nothing
+Set acc = Nothing
+
+End Function`
+
+  let code0 = `Function enableShift()
+  
+'initialize variables
+Dim databaseLocation as String
+Dim db, acc
+
+'specify database location
+Dim databaseLocation as String
+databaseLocation = "\\\\users\\brownj\\testdatabase.accdb"
+  
+'open the database as an Access object
+Set acc = CreateObject("Access.Application")
+
+'open the "database" now within that object
+Set db = acc.DBEngine.OpenDatabase(databaseLocation, False, False)
+
+'run the command
+db.Properties("AllowByPassKey") = True
+
+End Function`
+
+  let code1 = `On Error GoTo errEnableShift
+
+Const conPropNotFound = 3270
+
+'call the function
+enableShift
+
+Function enableShift()
+  
+'initialize variables
+Dim databaseLocation as String
+Dim db, acc
+Dim prop
+
+'specify database location
+Dim databaseLocation as String
+databaseLocation = "\\\\users\\brownj\\testdatabase.accdb"
+  
+'open the database as an Access object
+Set acc = CreateObject("Access.Application")
+
+'open the "database" now within that object
+Set db = acc.DBEngine.OpenDatabase(databaseLocation, False, False)
+
+'run the command
+db.Properties("AllowByPassKey") = True
+GoTo exitFunction
+
+errEnableShift:
+If Err = conPropNotFound Then
+  Set prop = db.CreateProperty("AllowByPassKey", dbBoolean, True)
+  db.Properties.Append prop
+Resume Next
+End If
+
+exitFunction: 'clear your objects/detach from the database
+db.Close
+Set db = Nothing
+Set acc = Nothing
+
+End Function`
 
 
   return (
@@ -48,12 +123,12 @@ export default function Home() {
             <Typography variant="h5">
               Let's bust it open!
             </Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Stack direction='row' spacing={1} sx={{ alignItems: 'center', justifyContent: 'center' }}>
               <Typography variant="subtitle1">
                 Written by Jacob, October 2025
               </Typography>
               <Avatar alt="Jacob Brown" src="/images/jacob_brown.jpg" />
-            </Box>
+            </Stack>
           </Box>
         </Grow>
       </Grid>
@@ -80,9 +155,9 @@ export default function Home() {
         <Grow in={true}>
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
-              <Typography variant="h5" color='text.secondary'>Tow Methods</Typography>
+              <Typography variant="h5" color='text.secondary'>Two Methods</Typography>
               <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                There are two main methods I am exploring here.
+                You could do this a few ways... Here are two.
               </Typography>
               <List
                 sx={{ maxWidth: 600, bgcolor: 'background.paper' }}
@@ -91,12 +166,15 @@ export default function Home() {
                   1. Use another MS Access Database (or any other MS product)
                 </ListItem>
                 <ListItem>
-                  2. Use a vbScipt
+                  2. Use a VBScript
                 </ListItem>
               </List>
               <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                The method / code is essentially the same.
+                The method / code is essentially the same. Both use the core function below.
+                This code sample is basic and is expecting the database to already at least have the property available.
+                The code samples later deal with the possibility of that not existing yet.
               </Typography>
+              <CodeBlock code={codeOg} />
             </Stack>
           </Paper>
         </Grow>
@@ -104,28 +182,20 @@ export default function Home() {
 
       <Grid size={{ xs: 12 }}>
         <Grow in={true}>
-          <div>
-            <CodeBlock code={code0} />
-          </div>
-        </Grow>
-      </Grid>
-
-      <Grid size={{ xs: 12 }}>
-        <Grow in={true}>
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
-              <Typography variant="h5" color='text.secondary'>METHOD 1</Typography>
+              <Typography variant="h5" color='text.secondary'>METHOD 1: Use another MS Access DB</Typography>
               <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                Method 1 is using another MS Access Database (or Excel, PowerPoint, doesn't really matter).
+                Also Excel, PowerPoint, Word, Classic Outlook. It doesn't really matter which application you use. Just some place you can run some VBA.
               </Typography>
               <List
                 sx={{ maxWidth: 600, bgcolor: 'background.paper' }}
               >
                 <ListItem>
-                  1. Open the VB Editor (in this other database).
+                  1. Open the VB Editor (in the other database).
                 </ListItem>
                 <ListItem>
-                  2. Paste the below code into a module.
+                  2. Paste the below code into a module. Don't forget to modify your DB location.
                 </ListItem>
                 <ListItem>
                   3. Run the function!
@@ -141,62 +211,40 @@ export default function Home() {
         <Grow in={true}>
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
-              <Typography variant="h5" color='text.secondary'>Now, let's encrypt it.</Typography>
+              <Typography variant="h5" color='text.secondary'>METHOD 2: Create a VBScript file</Typography>
               <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                Go over to 'File'
-              </Typography>
-              <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                <CardMedia
-                  component="img"
-                  src='/images/ms-access-vba/encrypt-database/howTo_2.png'
-                  sx={{ maxHeight: 600 }}
-                />
-              </Card>
-              <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                Now select 'Info', then 'Encrypt with Password'
-              </Typography>
-              <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                <CardMedia
-                  component="img"
-                  src='/images/ms-access-vba/encrypt-database/howTo_3.png'
-                  sx={{ maxHeight: 600 }}
-                />
-              </Card>
-              <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                Easy peasy - now just put in the password you want to use.
-              </Typography>
-              <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                <CardMedia
-                  component="img"
-                  src='/images/ms-access-vba/encrypt-database/howTo_4.png'
-                  sx={{ maxHeight: 600 }}
-                />
-              </Card>
-              <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                Not sure what password to use? I highly recommend using a generated password, like the one on LastPass.
-                Then, you don't have to worry about how strong it is.
-              </Typography>
-            </Stack>
-          </Paper>
-        </Grow>
-      </Grid>
-
-      <Grid size={{ xs: 12 }}>
-        <Grow in={true}>
-          <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
-            <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
-              <Typography variant="h5" color='text.secondary'>Notes on Encryption</Typography>
-              <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                If you're thinking this makes your Access Database infinitely secure, think again.
-                In reality it's usually not that hard to get a password, especially if this is connect to a shift-enabled front end.
-                The passwords are literally stored in plain text on the linked database.
+                If you've never used one before, VBScripts are very handy. Sometimes I use an MS Access DB to call a VBscript.
+                Sometimes, I use a VBScript to call an MS Access DB. Other times, I'll use it to perform some strange task like this one.
               </Typography>
               <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                Also, to remove the encryption you need to have your password on hand (as you would guess).
+                They are very simple to create. Just open a text editor (notepad works just fine).
+                Be careful having this file out in the open though - and then labelling it "how to disable shift protection" or something like that.
+                I think you know what I'm saying here.
               </Typography>
-              <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                FYI - No password-protected app is any stronger than the storage of the password.
-              </Typography>
+              <List
+                sx={{ maxWidth: 600, bgcolor: 'background.paper' }}
+              >
+                <ListItem>
+                  1. Open a text editor (notepad is the example here)
+                </ListItem>
+                <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
+                  <CardMedia
+                    component="img"
+                    src='/images/ms-access-vba/encrypt-database/howTo_2.png'
+                    sx={{ maxHeight: 600 }}
+                  />
+                </Card>
+                <ListItem>
+                  2. Paste the below code into that file. Don't forget to modify your DB location.
+                </ListItem>
+                <ListItem>
+                  3. Save the file with an extension of .vbs
+                </ListItem>
+                <ListItem>
+                  4. Close the file, and double-click it to run it.
+                </ListItem>
+              </List>
+              <CodeBlock code={code1} />
             </Stack>
           </Paper>
         </Grow>
