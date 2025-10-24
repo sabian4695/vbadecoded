@@ -57,9 +57,11 @@ export default function Home() {
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
               <Typography variant="h5" color='text.secondary'>All General VBA Articles:</Typography>
-              <Button href='/vba/vba-editor-dark-mode' variant='text' color='inherit' sx={{ textDecoration: 'underline' }} component={Link}>
-                VBA Editor Dark Mode
-              </Button>
+              <Box>
+                <Button href='/vba/vba-editor-dark-mode' variant='text' color='inherit' size="large" sx={{ textDecoration: 'underline' }} component={Link}>
+                  VBA Editor Dark Mode
+                </Button>
+              </Box>
             </Stack>
           </Paper>
         </Grow>

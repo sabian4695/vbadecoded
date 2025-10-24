@@ -20,6 +20,7 @@ import Link from 'next/link'
 import MenuIcon from '@mui/icons-material/Menu';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import Grid from '@mui/material/Grid';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const primaryMain = '#5f8fa5ff'
 const secondaryMain = '#698679'
@@ -67,6 +68,7 @@ if (global?.window !== undefined) {
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+
   const [themeMode, setThemeMode] = React.useState<String | any>(initialThemeMode)
   const [theme, setTheme] = React.useState<themeType>(themes.darkTheme);
 
@@ -84,20 +86,25 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     localStorage.setItem('userTheme', event.target.value)
   };
 
-
   React.useEffect(() => {
     if (themeMode === 'dark') {
       //@ts-ignore
       setTheme(themes.darkTheme)
+      localStorage.setItem("userTheme", "dark")
     } else if (themeMode === 'light') {
       //@ts-ignore
       setTheme(themes.lightTheme)
+      localStorage.setItem("userTheme", "light")
     }
   }, [themeMode])
 
   return (
     <html lang="en">
-      <head><title>VBA Decoded</title></head>
+      <head>
+        <title>
+          VBA Decoded
+        </title>
+      </head>
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
