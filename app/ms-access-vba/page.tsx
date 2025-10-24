@@ -60,6 +60,9 @@ export default function Home() {
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
               <Typography variant="h5" color='text.secondary'>All MS Access VBA Articles:</Typography>
+              <Button href='/ms-access-vba/force-shift-enable' variant='text' color='inherit' sx={{ textDecoration: 'underline' }} component={Link}>
+                Force Shift-Enable an MS Access Database
+              </Button>
               <Button href='/ms-access-vba/encrypt-database' variant='text' color='inherit' sx={{ textDecoration: 'underline' }} component={Link}>
                 Encrypt an MS Access Database
               </Button>

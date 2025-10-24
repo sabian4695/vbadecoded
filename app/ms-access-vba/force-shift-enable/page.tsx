@@ -10,6 +10,7 @@ import Alert from '@mui/material/Alert';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Avatar from '@mui/material/Avatar';
+import ListItemText from '@mui/material/ListItemText';
 
 import CodeBlock from '../../../misc/codeBlock'
 
@@ -20,12 +21,11 @@ export default function Home() {
   let codeOg = `Function enableShift()
   
 'initialize variables
-Dim databaseLocation as String
 Dim db, acc
 
 'specify database location
 Dim databaseLocation as String
-databaseLocation = "\\\\users\\brownj\\testdatabase.accdb"
+databaseLocation = "C:\\\\dev\\\WorkingDB_brownj_dev.accdb"
   
 'open the database as an Access object
 Set acc = CreateObject("Access.Application")
@@ -41,46 +41,22 @@ db.Close
 Set db = Nothing
 Set acc = Nothing
 
+MsgBox "Done!"
+
 End Function`
 
   let code0 = `Function enableShift()
-  
+On Error GoTo errEnableShift
+
 'initialize variables
 Dim databaseLocation as String
-Dim db, acc
-
-'specify database location
-Dim databaseLocation as String
-databaseLocation = "\\\\users\\brownj\\testdatabase.accdb"
-  
-'open the database as an Access object
-Set acc = CreateObject("Access.Application")
-
-'open the "database" now within that object
-Set db = acc.DBEngine.OpenDatabase(databaseLocation, False, False)
-
-'run the command
-db.Properties("AllowByPassKey") = True
-
-End Function`
-
-  let code1 = `On Error GoTo errEnableShift
-
+Dim db As DAO.Database, acc
+Dim prop As DAO.Property
 Const conPropNotFound = 3270
 
-'call the function
-enableShift
-
-Function enableShift()
-  
-'initialize variables
-Dim databaseLocation as String
-Dim db, acc
-Dim prop
-
 'specify database location
 Dim databaseLocation as String
-databaseLocation = "\\\\users\\brownj\\testdatabase.accdb"
+databaseLocation = "C:\\\\dev\\\WorkingDB_brownj_dev.accdb"
   
 'open the database as an Access object
 Set acc = CreateObject("Access.Application")
@@ -90,21 +66,58 @@ Set db = acc.DBEngine.OpenDatabase(databaseLocation, False, False)
 
 'run the command
 db.Properties("AllowByPassKey") = True
-GoTo exitFunction
+
+GoTo exitThis
 
 errEnableShift:
 If Err = conPropNotFound Then
-  Set prop = db.CreateProperty("AllowByPassKey", dbBoolean, True)
-  db.Properties.Append prop
-Resume Next
+    Set prop = db.CreateProperty("AllowByPassKey", dbBoolean, True)
+    db.Properties.Append prop
+    Resume Next
+    GoTo exitThis
 End If
 
-exitFunction: 'clear your objects/detach from the database
+MsgBox "Done!"
+
+exitThis: 'clear your objects/detach from the database
 db.Close
 Set db = Nothing
 Set acc = Nothing
 
 End Function`
+
+  let code1 = `On Error Resume Next
+ 
+Const conPropNotFound = 3270
+
+'initialize variables
+Dim db, acc
+Dim prop
+ 
+'specify database location
+Dim databaseLocation
+databaseLocation = "C:\\\\dev\\\WorkingDB_brownj_dev.accdb"
+'open the database as an Access object
+Set acc = CreateObject("Access.Application")
+ 
+'open the "database" now within that object
+Set db = acc.DBEngine.OpenDatabase(databaseLocation, False, False)
+ 
+'run the command
+db.Properties("AllowByPassKey") = True
+ 
+'if there is an error, then you need to add the property
+If Err = conPropNotFound Then
+  Set prop = db.CreateProperty("AllowByPassKey", 1, True)
+  db.Properties.Append prop
+End If
+ 
+'clear your objects/detach from the database
+db.Close
+Set db = Nothing
+Set acc = Nothing
+
+MsgBox "Done!"`
 
 
   return (
@@ -186,19 +199,20 @@ End Function`
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
               <Typography variant="h5" color='text.secondary'>METHOD 1: Use another MS Access DB</Typography>
               <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                Also Excel, PowerPoint, Word, Classic Outlook. It doesn't really matter which application you use. Just some place you can run some VBA.
+                You could also use Excel, PowerPoint, Word, Classic Outlook, etc. It doesn't really matter which application you use.
+                Just a place you can run some VBA. In this function, the error handling uses VBAs "On Error GoTo" functionality.
               </Typography>
               <List
                 sx={{ maxWidth: 600, bgcolor: 'background.paper' }}
               >
                 <ListItem>
-                  1. Open the VB Editor (in the other database).
+                  <ListItemText primary="1. Open the VB Editor." secondary="(in the other database)" />
                 </ListItem>
                 <ListItem>
-                  2. Paste the below code into a module. Don't forget to modify your DB location.
+                  <ListItemText primary="2. Paste the below code into a module." secondary="Don't forget to modify your DB location!" />
                 </ListItem>
                 <ListItem>
-                  3. Run the function!
+                  <ListItemText primary="3. Run the function!" secondary="I usually go to the immediate pane and type the function name, then hit Enter." />
                 </ListItem>
               </List>
               <CodeBlock code={code0} />
@@ -221,28 +235,38 @@ End Function`
                 Be careful having this file out in the open though - and then labelling it "how to disable shift protection" or something like that.
                 I think you know what I'm saying here.
               </Typography>
+              <Typography sx={{ maxWidth: '800px', p: 2 }}>
+                VBScripts do not have the ability to use "On Error GoTo" like VBA, so you will need to use a different method, like below.
+              </Typography>
               <List
                 sx={{ maxWidth: 600, bgcolor: 'background.paper' }}
               >
                 <ListItem>
                   1. Open a text editor (notepad is the example here)
                 </ListItem>
-                <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                  <CardMedia
-                    component="img"
-                    src='/images/ms-access-vba/encrypt-database/howTo_2.png'
-                    sx={{ maxHeight: 600 }}
-                  />
-                </Card>
                 <ListItem>
                   2. Paste the below code into that file. Don't forget to modify your DB location.
                 </ListItem>
                 <ListItem>
                   3. Save the file with an extension of .vbs
                 </ListItem>
+                <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
+                  <CardMedia
+                    component="img"
+                    src='/images/ms-access-vba/force-shift-enable/notepad-save.png'
+                    sx={{ maxHeight: 600 }}
+                  />
+                </Card>
                 <ListItem>
                   4. Close the file, and double-click it to run it.
                 </ListItem>
+                <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
+                  <CardMedia
+                    component="img"
+                    src='/images/ms-access-vba/force-shift-enable/vbs.png'
+                    sx={{ maxHeight: 600 }}
+                  />
+                </Card>
               </List>
               <CodeBlock code={code1} />
             </Stack>
