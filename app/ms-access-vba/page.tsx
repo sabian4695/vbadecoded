@@ -36,8 +36,8 @@ export default function Home() {
 
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
-          <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
-            <Stack spacing={5}>
+          <Box sx={{ borderRadius: '10px', p: 3, m: 2, textAlign: 'center' }}>
+            <Stack spacing={3}>
               <Typography variant="h3">
                 My bread and butter!
               </Typography>
@@ -47,11 +47,8 @@ export default function Home() {
               <Typography variant="body2">
                 (Though some of the articles may not be about VBA...)
               </Typography>
-              <Typography variant="h6">
-                See below for all the current articles.
-              </Typography>
             </Stack>
-          </Paper>
+          </Box>
         </Grow>
       </Grid>
 
@@ -60,14 +57,14 @@ export default function Home() {
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
               <Typography variant="h5" color='text.secondary'>All MS Access VBA Articles:</Typography>
-              <Box>
+              <Stack>
                 <Button href='/ms-access-vba/force-shift-enable' variant='text' size='large' color='inherit' sx={{ textDecoration: 'underline' }} component={Link}>
                   Force Shift-Enable an MS Access Database
                 </Button>
                 <Button href='/ms-access-vba/encrypt-database' variant='text' size='large' color='inherit' sx={{ textDecoration: 'underline' }} component={Link}>
                   Encrypt an MS Access Database
                 </Button>
-              </Box>
+              </Stack>
             </Stack>
           </Paper>
         </Grow>

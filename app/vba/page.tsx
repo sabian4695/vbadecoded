@@ -36,19 +36,19 @@ export default function Home() {
 
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
-          <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
-            <Box>
+          <Box sx={{ borderRadius: '10px', p: 3, m: 2, textAlign: 'center' }}>
+            <Stack spacing={3}>
               <Typography variant="h3">
                 Gotta love VBA!
               </Typography>
               <Typography variant="h5">
                 With all its faults, VBA is a wildly powerful tool.
               </Typography>
-            </Box>
-            <Typography variant="h6">
-              See below for all the current articles.
-            </Typography>
-          </Paper>
+              <Typography variant="body2">
+                There are honestly some insane things you can do.
+              </Typography>
+            </Stack>
+          </Box>
         </Grow>
       </Grid>
 
@@ -57,11 +57,11 @@ export default function Home() {
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
               <Typography variant="h5" color='text.secondary'>All General VBA Articles:</Typography>
-              <Box>
+              <Stack>
                 <Button href='/vba/vba-editor-dark-mode' variant='text' color='inherit' size="large" sx={{ textDecoration: 'underline' }} component={Link}>
                   VBA Editor Dark Mode
                 </Button>
-              </Box>
+              </Stack>
             </Stack>
           </Paper>
         </Grow>
