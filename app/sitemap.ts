@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             lastModified: new Date(),
         },
         {
-            url: 'https://www.vbadecoded.com/ms-access-vba/force-shift-enable',
+            url: 'https://www.vbadecoded.com/ms-access-vba/force-reenable-shift-key-bypass',
             lastModified: new Date(),
         },
     ]
