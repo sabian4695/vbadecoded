@@ -101,8 +101,8 @@ export default function Home() {
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
               <Typography variant="h5" color='text.secondary'>Latest Articles</Typography>
               <Stack>
-                <Button href='/ms-access-vba/force-shift-enable' variant='text' size='large' color='inherit' sx={{ textDecoration: 'underline' }} component={Link}>
-                  Force Shift-Enable an MS Access Database
+                <Button href='/ms-access-vba/force-reenable-shift-key-bypass' variant='text' size='large' color='inherit' sx={{ textDecoration: 'underline' }} component={Link}>
+                  Force Re-enable Shift-Key Bypass on an MS Access Database
                 </Button>
                 <Button href='/ms-access-vba/encrypt-database' variant='text' size='large' color='inherit' sx={{ textDecoration: 'underline' }} component={Link}>
                   Encrypt an MS Access Database
