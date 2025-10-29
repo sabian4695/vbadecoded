@@ -131,7 +131,7 @@ MsgBox "Done!"`
         <Grow in={true}>
           <Box sx={{ textAlign: 'center' }}>
             <Typography variant="h3">
-              Force Shift-Enable a Microsoft Access Database
+              Force Re-Enable Shift Key Bypass on a Microsoft Access Database
             </Typography>
             <Typography variant="h5">
               Let's bust it open!
