@@ -152,7 +152,10 @@ MsgBox "Done!"`
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
               <Typography variant="h5" color='text.secondary'>What is Shift-Enabling?</Typography>
               <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                I'm assuming you know what shift-enabling and shift-disabling mean for an MS Access Database.
+                Trying to break into an MS Access database? Or maybe you accidentally disabled the shift-key bypass on one?
+                Here's how to force re-enable the shift-key bypass.
+
+                I'm assuming you know what shift-key bypass is for an MS Access Database.
                 Just so we're clear though, it's that "special keys" thing that allows you to bypass the startup form
                 and any startup macros from running. It basically opens a database bypassing all the protective procedures.
               </Typography>
