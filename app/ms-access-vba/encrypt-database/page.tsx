@@ -5,6 +5,8 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
+import Link from 'next/link'
+import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Avatar from '@mui/material/Avatar';
@@ -30,6 +32,16 @@ export default function Home() {
               </Typography>
               <Avatar alt="Jacob Brown" src="/images/jacob_brown.jpg" />
             </Stack>
+          </Box>
+        </Grow>
+      </Grid>
+
+      <Grid size={{ xs: 12 }}>
+        <Grow in={true}>
+          <Box sx={{ textAlign: 'center' }}>
+            <Button href='https://youtu.be/8YIO4kRpKII' variant='outlined' color='secondary' target='_blank' component={Link}>
+              Click here to watch the YouTube video!
+            </Button>
           </Box>
         </Grow>
       </Grid>
