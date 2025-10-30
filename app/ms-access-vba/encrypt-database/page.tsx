@@ -35,6 +35,16 @@ export default function Home() {
       </Grid>
 
       <Grid size={{ xs: 12 }}>
+              <Grow in={true}>
+                <Box sx={{ textAlign: 'center' }}>
+                  <Button href='https://youtu.be/8YIO4kRpKII' variant='outlined' color='secondary' target='_blank' component={Link}>
+                    Click here to watch the YouTube video!
+                  </Button>
+                </Box>
+              </Grow>
+            </Grid>
+
+      <Grid size={{ xs: 12 }}>
         <Grow in={true}>
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
