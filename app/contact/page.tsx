@@ -21,17 +21,20 @@ export default function Home() {
     <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} spacing={3} container>
       <Grid size={{ xs: 12 }}>
         <Grow in={true}>
-          <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
+          <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 2, maxWidth: '800px' }}>
             <Box>
-              <Typography variant="h3" component="h1">
+              <Typography variant="h3" component="h1" sx={{ p: 1 }}>
                 Hey there!
               </Typography>
-              <Typography variant="h5">
+              <Typography variant="h5" sx={{ p: 1 }}>
                 Have a question? Maybe an idea for a new article?
+              </Typography>
+              <Typography variant="body1" sx={{ p: 1 }}>
+                OK yeah I guess there's also the possibility there's a mistake somewhere. Please reach out if you find an error or think an article could be improved.
               </Typography>
             </Box>
             <Box>
-              <Typography variant="h6" sx={{ mt: 5 }}>
+              <Typography variant="h6" sx={{ mt: 5, p: 1 }}>
                 Contact us here:
               </Typography>
               <Button href='mailto:contactvbadecoded@gmail.com' variant='contained'>contactvbadecoded@gmail.com</Button>
