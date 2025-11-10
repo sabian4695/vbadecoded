@@ -12,10 +12,12 @@ import { articleObj } from "@/misc/articleTypes";
 
 import { fullArticle as encryptArticle } from "./encrypt-database/page";
 import { fullArticle as enableShiftArticle } from "./force-reenable-shift-key-bypass/page";
+import { fullArticle as findPwArticle } from "./find-encryption-password/page";
 
 export const allArticles: articleObj[] = [
   enableShiftArticle,
-  encryptArticle
+  encryptArticle,
+  findPwArticle
 ]
 
 import type { Metadata } from 'next'
