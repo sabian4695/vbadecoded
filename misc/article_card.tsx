@@ -42,7 +42,7 @@ export default function ArticleCard(cardProp: cardProps) {
                                     </Card>
                                     : null}
                                 {x.alert !== undefined ?
-                                    <Alert sx={{ maxWidth: '800px', justifySelf: 'center' }} severity={x.alert.severity}>{x.alert.title}</Alert>
+                                    <Alert sx={{ maxWidth: '800px', justifySelf: 'center', mt: 2 }} severity={x.alert.severity}>{x.alert.title}</Alert>
                                     : null}
                                 {x.list !== undefined ?
                                     <List

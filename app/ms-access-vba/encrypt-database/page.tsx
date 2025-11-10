@@ -24,7 +24,7 @@ const headerData: headerObj = {
   imageAlt: 'Jacob Brown'
 }
 
-const articleData: cardObj[] = [
+export const articleData: cardObj[] = [
   {
     title: 'Why Encrypt?',
     contents: [
@@ -106,7 +106,7 @@ const articleData: cardObj[] = [
         text: `FYI - No password-protected app is any stronger than the storage of the password.`,
       }
     ]
-  }
+  },
 ]
 
 const videoDataObj: videoLinkObj = {

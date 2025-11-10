@@ -123,6 +123,20 @@ const headerData: headerObj = {
 
 const articleData: cardObj[] = [
   {
+    title: 'First, why are you doing this?',
+    contents: [
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Please make good decisions. The information I give here is mainly for fixing your own mistakes or possibly breaking open a passed-down database or something similar.`,
+        alert: {
+          title: `If you perform this action to a database that is using this method as security, this would be considered bypassing that security. Don\'t do that without permission...`,
+          severity: 'error'
+        }
+      }
+    ]
+  },
+  {
     title: 'What is Shift-Enabling?',
     contents: [
       {
@@ -167,7 +181,7 @@ const articleData: cardObj[] = [
         text: `The method / code is essentially the same. Both use the core function below.
                 This code sample is basic and is expecting the database to already at least have the property available.
                 The code samples later deal with the possibility of that not existing yet.`,
-        code: code0
+        code: codeOg
       }
     ]
   },
@@ -238,9 +252,21 @@ const articleData: cardObj[] = [
           },
         ],
         code: code1
+      },
+
+    ]
+  },
+  {
+    title: 'Wow, that\'s really all there is to it?',
+    contents: [
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Yeah this is a scary reality of developing in MS Access. There are many other security measures you can take, but this common one is pretty easy to break through.
+         In all reality, though, this is still plenty of security unless you know you have some power users that could easily google this and find this very article...`,
       }
     ]
-  }
+  },
 ]
 
 
