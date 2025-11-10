@@ -1,27 +1,21 @@
 import React from "react";
-import Typography from "@mui/material/Typography";
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Paper from '@mui/material/Paper';
-import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
-import Link from 'next/link'
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
+import dayjs from "dayjs";
 
 import ArticleHeader from "@/misc/article_header";
 import ArticleCard from '@/misc/article_card'
 import VideoLink from "@/misc/article_videoLink";
 
-import { headerObj, cardObj, videoLinkObj } from '@/misc/articleTypes'
+import { headerObj, cardObj, videoLinkObj, articleObj } from '@/misc/articleTypes'
 
 const headerData: headerObj = {
   title: 'VBA Editor Dark Mode',
   subTitle: 'Here\'s how you set up dark mode on the default IDE for Visual Basic (VBA Editor) ',
   note: 'Written by Jacob, October 2025',
   imageSrc: '/images/jacob_brown.jpg',
-  imageAlt: 'Jacob Brown'
+  imageAlt: 'Jacob Brown',
+  publishDate: dayjs('10/10/2025').valueOf(),
+  url: '/vba/vba-editor-dark-mode'
 }
 
 import type { Metadata } from 'next'
@@ -178,6 +172,11 @@ const articleData: cardObj[] = [
 const videoDataObj: videoLinkObj = {
   title: 'Click here to watch the YouTube video!',
   link: 'https://youtu.be/YRpptzMkuHc'
+}
+
+export const fullArticle: articleObj = {
+  header: headerData,
+  content: articleData
 }
 
 

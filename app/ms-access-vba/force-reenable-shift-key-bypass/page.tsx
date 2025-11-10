@@ -1,9 +1,10 @@
 import Grid from '@mui/material/Grid';
+import dayjs from "dayjs";
 
 import ArticleHeader from "@/misc/article_header";
 import ArticleCard from '@/misc/article_card'
 
-import { headerObj, cardObj } from '@/misc/articleTypes'
+import { headerObj, cardObj, articleObj } from '@/misc/articleTypes'
 
 import type { Metadata } from 'next'
 
@@ -118,7 +119,9 @@ const headerData: headerObj = {
   subTitle: 'Let\'s bust it open!',
   note: 'Written by Jacob, October 2025',
   imageSrc: '/images/jacob_brown.jpg',
-  imageAlt: 'Jacob Brown'
+  imageAlt: 'Jacob Brown',
+  publishDate: dayjs('10/25/2025').valueOf(),
+  url: '/ms-access-vba/force-reenable-shift-key-bypass'
 }
 
 const articleData: cardObj[] = [
@@ -268,6 +271,11 @@ const articleData: cardObj[] = [
     ]
   },
 ]
+
+export const fullArticle: articleObj = {
+  header: headerData,
+  content: articleData
+}
 
 
 const paperSx: any = { borderRadius: '10px', p: 1, m: 1 }

@@ -16,6 +16,12 @@ import ListItemButton from '@mui/material/ListItemButton';
 import Link from 'next/link'
 import Button from '@mui/material/Button';
 import type { Metadata } from 'next'
+import { articleObj } from "@/misc/articleTypes";
+
+import { allArticles as aVbaArticles } from './ms-access-vba/page'
+import { allArticles as vbaArticles } from './vba/page'
+
+export const allArticles: articleObj[] = [...aVbaArticles, ...vbaArticles]
 
 export const metadata: Metadata = {
   title: 'VBA Decoded - Home',
@@ -107,15 +113,15 @@ export default function Home() {
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
               <Typography variant="h5" color='text.secondary'>Latest Articles</Typography>
               <Stack>
-                <Button href='/ms-access-vba/force-reenable-shift-key-bypass' variant='text' size='large' color='inherit' sx={{ textDecoration: 'underline' }} component={Link}>
-                  Force Re-enable Shift-Key Bypass on an MS Access Database
-                </Button>
-                <Button href='/ms-access-vba/encrypt-database' variant='text' size='large' color='inherit' sx={{ textDecoration: 'underline' }} component={Link}>
-                  Encrypt an MS Access Database
-                </Button>
-                <Button href='/vba/vba-editor-dark-mode' variant='text' color='inherit' size="large" sx={{ textDecoration: 'underline' }} component={Link}>
-                  VBA Editor Dark Mode
-                </Button>
+                {allArticles.sort(
+                  (a, b) => {
+                    return b.header.publishDate - a.header.publishDate;
+                  }
+                ).map((x, xIndex) => (
+                  <Button key={xIndex} href={x.header.url} variant='text' size='large' color='inherit' sx={{ textDecoration: 'underline' }} component={Link}>
+                    {x.header.title}
+                  </Button>
+                ))}
               </Stack>
             </Stack>
           </Paper>

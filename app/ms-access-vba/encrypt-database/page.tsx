@@ -1,11 +1,12 @@
 import React from "react";
 import Grid from '@mui/material/Grid';
+import dayjs from "dayjs";
 
 import ArticleHeader from "@/misc/article_header";
 import ArticleCard from '@/misc/article_card'
 import VideoLink from "@/misc/article_videoLink";
 
-import { headerObj, cardObj, videoLinkObj } from '@/misc/articleTypes'
+import { headerObj, cardObj, videoLinkObj, articleObj } from '@/misc/articleTypes'
 
 import type { Metadata } from 'next'
 
@@ -21,10 +22,12 @@ const headerData: headerObj = {
   subTitle: 'Let\'s secure this thing.',
   note: 'Written by Jacob, October 2025',
   imageSrc: '/images/jacob_brown.jpg',
-  imageAlt: 'Jacob Brown'
+  imageAlt: 'Jacob Brown',
+  publishDate: dayjs('10/12/2025').valueOf(),
+  url: '/ms-access-vba/encrypt-database'
 }
 
-export const articleData: cardObj[] = [
+const articleData: cardObj[] = [
   {
     title: 'Why Encrypt?',
     contents: [
@@ -112,6 +115,11 @@ export const articleData: cardObj[] = [
 const videoDataObj: videoLinkObj = {
   title: 'Click here to watch the YouTube video!',
   link: 'https://youtu.be/8YIO4kRpKII'
+}
+
+export const fullArticle: articleObj = {
+  header: headerData,
+  content: articleData
 }
 
 export default function Home() {

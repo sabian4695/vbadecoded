@@ -29,23 +29,19 @@ export interface cardObj {
     contents: cardContentObj[]
 }
 
-export interface sectionContentObj {
-    sectionId: string,
-    sectionTitle: string,
-    cards: cardObj[]
-}
-
 export interface headerObj {
     title: string,
     subTitle: string,
     note: string,
     imageSrc: string,
-    imageAlt: string
+    imageAlt: string,
+    publishDate: number,
+    url: string
 }
 
-export interface bodyObj {
+export interface articleObj {
     header: headerObj
-    content: sectionContentObj[]
+    content: cardObj[]
 }
 
 export interface videoLinkObj {
