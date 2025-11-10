@@ -61,10 +61,6 @@ const articleData: cardObj[] = [
         color: 'text.primary',
         variant: 'body1',
         text: `Please make good decisions. The information I give here is mainly for fixing your own mistakes or possibly breaking open a passed-down database or something similar.`,
-        alert: {
-          title: `If you perform this action to a database that is using this method as security, this would be considered bypassing that security. Don\'t do that without permission...`,
-          severity: 'error'
-        }
       }
     ]
   },
@@ -76,7 +72,7 @@ const articleData: cardObj[] = [
         variant: 'body1',
         text: `Did you forget your password? Well you MIGHT be in luck... maybe...`,
         alert: {
-          title: `Important Note here: this method only works if you used a split database structure. If you only have an all-in -one database(tables and forms and everything is
+          title: `Important Note here: this method only works if you used a split database structure. If you only have an all-in-one database (tables and forms and everything is
           all in one file) then you are SOL unless you use a password recovery service`,
           severity: 'warning'
         }
@@ -84,7 +80,20 @@ const articleData: cardObj[] = [
       {
         color: 'text.primary',
         variant: 'body1',
-        text: `There are two basic pieces of information you need to know for this to work.`,
+        text: `Do you have access to the Front End file? Here\'s the easiest method. In the immediate window, just type this and it\'ll give you the connection string,
+         which includes the password for MS Access Databases.`,
+        code: '? CurrentDB.TableDefs("Table Name").Connect'
+      },
+    ]
+  },
+  {
+    title: 'What if I have no connection to the Front End?',
+    contents: [
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Let\'s say you don\'t have access to the front end. Basically you can use this other method to get all connection strings from a database.
+        There are two basic pieces of information you need to know for this to work.`,
         list: [
           {
             primaryText: '1. Linking an .accdb table to another .accdb stores the password in plain text in the system table MSysObjects',
@@ -92,7 +101,7 @@ const articleData: cardObj[] = [
           },
           {
             primaryText: '2. You can open another database\'s tables using DAO recordsets in VBA.',
-            secondaryText: ''
+            secondaryText: '(if it\'s not encrypted)'
           }
         ]
       },
@@ -101,19 +110,14 @@ const articleData: cardObj[] = [
         variant: 'body1',
         text: '',
         alert: {
-          title: 'Again, please use caution. Knowing this information and using it can compromise data integrity if you use it incorrectly.',
+          title: 'Please use caution here. Knowing this information and using it can compromise data integrity if you use it incorrectly.',
           severity: 'error'
         }
-      }
-    ]
-  },
-  {
-    title: 'The Method',
-    contents: [
+      },
       {
         color: 'text.primary',
         variant: 'body1',
-        text: `Okay here we go. It\'s crazy easy. Create a new database (or just use some other database) and put this code into a module.
+        text: `Okay here we go. Create a new database (or just use some other database) and put this code into a module.
         All this function does is grab the database as an object, then loop through the connections.
         I put them into the immediate window with Debug.Print, but you can use any method you like.`,
         code: code0
