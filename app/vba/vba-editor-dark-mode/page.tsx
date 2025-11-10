@@ -9,227 +9,189 @@ import Link from 'next/link'
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import Avatar from '@mui/material/Avatar';
+
+import ArticleHeader from "@/misc/article_header";
+import ArticleCard from '@/misc/article_card'
+import VideoLink from "@/misc/article_videoLink";
+
+import { headerObj, cardObj, videoLinkObj } from '@/misc/articleTypes'
+
+const headerData: headerObj = {
+  title: 'VBA Editor Dark Mode',
+  subTitle: 'Here\'s how you set up dark mode on the default IDE for Visual Basic (VBA Editor) ',
+  note: 'Written by Jacob, October 2025',
+  imageSrc: '/images/jacob_brown.jpg',
+  imageAlt: 'Jacob Brown'
+}
+
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'VBA Editor Dark Mode',
+  description: 'Switch your theme to Dark Mode on the default VBA Editor.',
+}
 
 const paperSx: any = { borderRadius: '10px', p: 1, m: 1 }
+
+const articleData: cardObj[] = [
+  {
+    title: 'The ugly VBE',
+    contents: [
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `The out-of-the-box editing experience is a little hard to use in my opinion... and most others...
+                Not only is there no 'Dark Mode' switch built in, but even the font is hard to read. Exhibit A, the below screenshot.`,
+        image: '/images/vba/vba-editor-dark-mode/lightMode_window.png'
+      }
+    ]
+  },
+  {
+    title: 'Dark Mode?',
+    contents: [
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `This is super easy to set up, but not quite the simple checkbox that I would want it to be.
+                Here's what my VBE looks like. You can see not quite everything is dark-themed. The toolbars are still light even with these settings applied.`,
+        image: '/images/vba/vba-editor-dark-mode/darkMode_window.png'
+      },
+    ]
+  },
+  {
+    title: 'First, head up to the Tools-Options area',
+    contents: [
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Click on Tools, then Options:`,
+        image: '/images/vba/vba-editor-dark-mode/howTo_0.png'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Then this pop-up should appear:`,
+        image: '/images/vba/vba-editor-dark-mode/howTo_1.png'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `All you need to do is edit each line item in the Code Colors area, using the Foreground and Background color dropdowns.
+                This is also the area where you can change the font size and type if you so desire.
+                If you want to know my preferences, see below, I took a screenshot of each item.`,
+      },
+    ]
+  },
+  {
+    title: 'My Preferences',
+    contents: [
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Here are the settings I use. Feel free to copy.`
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Normal Text`,
+        image: '/images/vba/vba-editor-dark-mode/theme_0.png',
+        customXs: 'auto'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Selection Text`,
+        image: '/images/vba/vba-editor-dark-mode/theme_1.png',
+        customXs: 'auto'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Syntax Error Text`,
+        image: '/images/vba/vba-editor-dark-mode/theme_2.png',
+        customXs: 'auto'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Execution Point Text`,
+        image: '/images/vba/vba-editor-dark-mode/theme_3.png',
+        customXs: 'auto'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Breakpoint Text`,
+        image: '/images/vba/vba-editor-dark-mode/theme_4.png',
+        customXs: 'auto'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Comment Text`,
+        image: '/images/vba/vba-editor-dark-mode/theme_5.png',
+        customXs: 'auto'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Keyword Text`,
+        image: '/images/vba/vba-editor-dark-mode/theme_6.png',
+        customXs: 'auto'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Indentifier Text`,
+        image: '/images/vba/vba-editor-dark-mode/theme_7.png',
+        customXs: 'auto'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Bookmark Text`,
+        image: '/images/vba/vba-editor-dark-mode/theme_8.png',
+        customXs: 'auto'
+      },
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Call Return Text`,
+        image: '/images/vba/vba-editor-dark-mode/theme_9.png',
+        customXs: 'auto'
+      },
+    ]
+  },
+  {
+    title: 'That\'s it!',
+    contents: [
+      {
+        color: 'text.primary',
+        variant: 'body1',
+        text: `Honestly, a bit dissapointing that this is the only option inside the VBE for dark mode. You can always edit your code 
+          in something like VS Code or Notepad++ or NeoVim or something like that, but the ease of using the VBE usually outranks those options for me personally.`,
+      },
+    ]
+  },
+]
+
+const videoDataObj: videoLinkObj = {
+  title: 'Click here to watch the YouTube video!',
+  link: 'https://youtu.be/YRpptzMkuHc'
+}
+
 
 export default function Home() {
   return (
     <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} spacing={3} container>
 
-      <Grid size={{ xs: 12 }}>
-        <Grow in={true}>
-          <Box sx={{ textAlign: 'center' }}>
-            <Typography variant="h3" sx={{ m: 3 }}>
-              VBA Editor Dark Mode
-            </Typography>
-            <Typography variant="h5" sx={{ mx: 3 }}>
-              Here's how you set up dark mode on the default IDE for Visual Basic (VBA Editor)
-            </Typography>
-            <Stack direction='row' spacing={1} sx={{ alignItems: 'center', justifyContent: 'center' }}>
-              <Typography variant="subtitle1">
-                Written by Jacob, October 2025
-              </Typography>
-              <Avatar alt="Jacob Brown" src="/images/jacob_brown.jpg" />
-            </Stack>
-          </Box>
-        </Grow>
-      </Grid>
+      <ArticleHeader headerInfo={headerData} />
 
-      <Grid size={{ xs: 12 }}>
-        <Grow in={true}>
-          <Box sx={{ textAlign: 'center' }}>
-            <Button href='https://youtu.be/YRpptzMkuHc' variant='outlined' color='secondary' target='_blank' component={Link}>
-              Click here to watch the YouTube video!
-            </Button>
-          </Box>
-        </Grow>
-      </Grid>
+      <VideoLink videoInfo={videoDataObj} />
 
-      <Grid size={{ xs: 12 }}>
-        <Grow in={true}>
-          <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
-            <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
-              <Typography variant="h5" color='text.secondary'>The ugly VBE</Typography>
-              <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                The out-of-the-box editing experience is a little hard to use in my opinion... and most others...
-                Not only is there no 'Dark Mode' switch built in, but even the font is hard to read. Exhibit A, the below screenshot.
-              </Typography>
-              <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                <CardMedia
-                  component="img"
-                  src='/images/vba/vba-editor-dark-mode/lightMode_window.png'
-                  sx={{ maxHeight: 300 }}
-                  alt="VBE Dark Mode"
-                />
-              </Card>
-            </Stack>
-          </Paper>
-        </Grow>
-      </Grid>
-
-      <Grid size={{ xs: 12 }}>
-        <Grow in={true}>
-          <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
-            <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
-              <Typography variant="h5" color='text.secondary'>Dark Mode?</Typography>
-              <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                This is super easy to set up, but not quite the simple checkbox that I would want it to be.
-                Here's what my VBE looks like. You can see not quite everything is dark-themed. The toolbars are still light even with these settings applied.
-              </Typography>
-              <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                <CardMedia
-                  component="img"
-                  src='/images/vba/vba-editor-dark-mode/darkMode_window.png'
-                  sx={{ maxHeight: 600 }}
-                  alt="VBE Dark Mode"
-                />
-              </Card>
-            </Stack>
-          </Paper>
-        </Grow>
-      </Grid>
-
-      <Grid size={{ xs: 12 }}>
-        <Grow in={true}>
-          <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
-            <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={1}>
-              <Typography variant="h5" color='text.secondary'>First, head up to the Tools-Options area</Typography>
-              <Typography>
-                Click on Tools, then Options:
-              </Typography>
-              <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                <CardMedia
-                  component="img"
-                  src='/images/vba/vba-editor-dark-mode/howTo_0.png'
-                  sx={{ maxHeight: 600 }}
-                />
-              </Card>
-              <Typography>
-                Then this pop-up should appear:
-              </Typography>
-              <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                <CardMedia
-                  component="img"
-                  src='/images/vba/vba-editor-dark-mode/howTo_1.png'
-                  sx={{ maxHeight: 600 }}
-                />
-              </Card>
-              <Typography sx={{ maxWidth: '800px', p: 2 }}>
-                All you need to do is edit each line item in the Code Colors area, using the Foreground and Background color dropdowns.
-                This is also the area where you can change the font size and type if you so desire.
-                If you want to know my preferences, see below, I took a screenshot of each item.
-              </Typography>
-            </Stack>
-          </Paper>
-        </Grow>
-      </Grid>
-
-      <Grid size={{ xs: 12 }}>
-        <Grow in={true}>
-          <Paper elevation={3} sx={{ borderRadius: '10px', p: 1, m: 1 }}>
-            <Grid sx={{ alignItems: 'center', justifyContent: 'center', textAlign: 'center' }} spacing={1} container>
-              <Grid size={{ xs: 12 }}>
-                <Typography variant="h5" color='text.secondary'>My Preferences</Typography>
-                <Typography>
-                  Here are the settings I use. Feel free to copy.
-                </Typography>
-              </Grid>
-
-              <Grid>
-                <Typography>Normal Text</Typography>
-                <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                  <CardMedia
-                    component="img"
-                    src='/images/vba/vba-editor-dark-mode/theme_0.png'
-                    sx={{ maxHeight: 600 }} />
-                </Card>
-              </Grid>
-              <Grid>
-                <Typography>Selection Text</Typography>
-                <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                  <CardMedia
-                    component="img"
-                    src='/images/vba/vba-editor-dark-mode/theme_1.png'
-                    sx={{ maxHeight: 600 }} />
-                </Card>
-              </Grid>
-              <Grid>
-                <Typography>Syntax Error Text</Typography>
-                <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                  <CardMedia
-                    component="img"
-                    src='/images/vba/vba-editor-dark-mode/theme_2.png'
-                    sx={{ maxHeight: 600 }} />
-                </Card>
-              </Grid>
-              <Grid>
-                <Typography>Execution Point Text</Typography>
-                <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                  <CardMedia
-                    component="img"
-                    src='/images/vba/vba-editor-dark-mode/theme_3.png'
-                    sx={{ maxHeight: 600 }} />
-                </Card>
-              </Grid>
-              <Grid>
-                <Typography>Breakpoint Text</Typography>
-                <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                  <CardMedia
-                    component="img"
-                    src='/images/vba/vba-editor-dark-mode/theme_4.png'
-                    sx={{ maxHeight: 600 }} />
-                </Card>
-              </Grid>
-              <Grid>
-                <Typography>Comment Text</Typography>
-                <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                  <CardMedia
-                    component="img"
-                    src='/images/vba/vba-editor-dark-mode/theme_5.png'
-                    sx={{ maxHeight: 600 }} />
-                </Card>
-              </Grid>
-              <Grid>
-                <Typography>Keyword Text</Typography>
-                <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                  <CardMedia
-                    component="img"
-                    src='/images/vba/vba-editor-dark-mode/theme_6.png'
-                    sx={{ maxHeight: 600 }} />
-                </Card>
-              </Grid>
-              <Grid>
-                <Typography>Indentifier Text</Typography>
-                <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                  <CardMedia
-                    component="img"
-                    src='/images/vba/vba-editor-dark-mode/theme_7.png'
-                    sx={{ maxHeight: 600 }} />
-                </Card>
-              </Grid>
-              <Grid>
-                <Typography>Bookmark Text</Typography>
-                <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                  <CardMedia
-                    component="img"
-                    src='/images/vba/vba-editor-dark-mode/theme_8.png'
-                    sx={{ maxHeight: 600 }} />
-                </Card>
-              </Grid>
-              <Grid>
-                <Typography>Call Return Text</Typography>
-                <Card elevation={1} sx={{ borderRadius: '10px', alignSelf: 'center', justifySelf: 'center' }}>
-                  <CardMedia
-                    component="img"
-                    src='/images/vba/vba-editor-dark-mode/theme_9.png'
-                    sx={{ maxHeight: 600 }} />
-                </Card>
-              </Grid>
-            </Grid>
-          </Paper>
-        </Grow>
-      </Grid>
+      {articleData.map((x, xIndex) => (
+        <ArticleCard cardInfo={x} key={xIndex} />
+      ))}
 
     </Grid>
   );

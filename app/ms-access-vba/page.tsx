@@ -9,6 +9,13 @@ import Grid from '@mui/material/Grid';
 import Link from 'next/link'
 import Button from '@mui/material/Button';
 
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'VBA Decoded - MS Access VBA',
+  description: 'Articles for developers on how to best use MS Access.',
+}
+
 export default function Home() {
   return (
     <Grid sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} spacing={3} container>
@@ -27,6 +34,7 @@ export default function Home() {
               sx={{ fontWeight: '100', letterSpacing: 7 }}
               variant={'h3'}
               color='text.secondary'
+              component="h1"
             >
               Microsoft Access + VBA
             </Typography>

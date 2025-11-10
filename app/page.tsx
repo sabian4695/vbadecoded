@@ -15,6 +15,12 @@ import Grid from '@mui/material/Grid';
 import ListItemButton from '@mui/material/ListItemButton';
 import Link from 'next/link'
 import Button from '@mui/material/Button';
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'VBA Decoded - Home',
+  description: 'A modern and in-depth resource for VBA and MS Access Development.',
+}
 
 export default function Home() {
   return (
@@ -44,7 +50,7 @@ export default function Home() {
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
           <Box sx={{ borderRadius: '10px', p: 3, m: 5, textAlign: 'center' }}>
-            <Typography variant="h3">
+            <Typography variant="h3" component="h1">
               Welcome to VBA Decoded!
             </Typography>
             <Typography variant="h5">

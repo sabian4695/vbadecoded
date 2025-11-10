@@ -20,7 +20,6 @@ import Link from 'next/link'
 import MenuIcon from '@mui/icons-material/Menu';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import Grid from '@mui/material/Grid';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 const primaryMain = '#5f8fa5ff'
 const secondaryMain = '#698679'
@@ -100,11 +99,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <html lang="en">
-      <head>
-        <title>
-          VBA Decoded
-        </title>
-      </head>
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>

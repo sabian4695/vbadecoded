@@ -9,6 +9,13 @@ import Grid from '@mui/material/Grid';
 import Link from 'next/link'
 import Button from '@mui/material/Button';
 
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'VBA Decoded - Contact',
+  description: 'Contact VBA Decoded to suggest a correction or article.',
+}
+
 export default function Home() {
   return (
     <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} spacing={3} container>
@@ -16,7 +23,7 @@ export default function Home() {
         <Grow in={true}>
           <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
             <Box>
-              <Typography variant="h3">
+              <Typography variant="h3" component="h1">
                 Hey there!
               </Typography>
               <Typography variant="h5">
