@@ -8,6 +8,22 @@ import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
 import Link from 'next/link'
 import Button from '@mui/material/Button';
+import { articleObj } from "@/misc/articleTypes";
+
+import { fullArticle as encryptArticle } from "./encrypt-database/page";
+import { fullArticle as enableShiftArticle } from "./force-reenable-shift-key-bypass/page";
+
+export const allArticles: articleObj[] = [
+  enableShiftArticle,
+  encryptArticle
+]
+
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'VBA Decoded - MS Access VBA',
+  description: 'Articles for developers on how to best use MS Access.',
+}
 
 export default function Home() {
   return (
@@ -27,6 +43,7 @@ export default function Home() {
               sx={{ fontWeight: '100', letterSpacing: 7 }}
               variant={'h3'}
               color='text.secondary'
+              component="h1"
             >
               Microsoft Access + VBA
             </Typography>
@@ -58,12 +75,15 @@ export default function Home() {
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
               <Typography variant="h5" color='text.secondary'>All MS Access VBA Articles:</Typography>
               <Stack>
-                <Button href='/ms-access-vba/force-reenable-shift-key-bypass' variant='text' size='large' color='inherit' sx={{ textDecoration: 'underline' }} component={Link}>
-                  Force Re-enable Shift-Key Bypass on an MS Access Database
-                </Button>
-                <Button href='/ms-access-vba/encrypt-database' variant='text' size='large' color='inherit' sx={{ textDecoration: 'underline' }} component={Link}>
-                  Encrypt an MS Access Database
-                </Button>
+                {allArticles.sort(
+                  (a, b) => {
+                    return b.header.publishDate - a.header.publishDate;
+                  }
+                ).map((x, xIndex) => (
+                  <Button key={xIndex} href={x.header.url} variant='text' size='large' color='inherit' sx={{ textDecoration: 'underline' }} component={Link}>
+                    {x.header.title}
+                  </Button>
+                ))}
               </Stack>
             </Stack>
           </Paper>

@@ -8,6 +8,20 @@ import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
 import Link from 'next/link'
 import Button from '@mui/material/Button';
+import { articleObj } from "@/misc/articleTypes";
+
+import { fullArticle as vbaDarkModeArticle } from './vba-editor-dark-mode/page'
+
+export const allArticles: articleObj[] = [
+  vbaDarkModeArticle,
+]
+
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'VBA Decoded - General VBA',
+  description: 'Articles for developers on using VBA.',
+}
 
 export default function Home() {
   return (
@@ -27,6 +41,7 @@ export default function Home() {
               sx={{ fontWeight: '100', letterSpacing: 7 }}
               variant={'h3'}
               color='text.secondary'
+              component="h1"
             >
               General VBA
             </Typography>
@@ -58,9 +73,15 @@ export default function Home() {
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
               <Typography variant="h5" color='text.secondary'>All General VBA Articles:</Typography>
               <Stack>
-                <Button href='/vba/vba-editor-dark-mode' variant='text' color='inherit' size="large" sx={{ textDecoration: 'underline' }} component={Link}>
-                  VBA Editor Dark Mode
-                </Button>
+                {allArticles.sort(
+                  (a, b) => {
+                    return b.header.publishDate - a.header.publishDate;
+                  }
+                ).map((x, xIndex) => (
+                  <Button key={xIndex} href={x.header.url} variant='text' size='large' color='inherit' sx={{ textDecoration: 'underline' }} component={Link}>
+                    {x.header.title}
+                  </Button>
+                ))}
               </Stack>
             </Stack>
           </Paper>
