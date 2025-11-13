@@ -24,19 +24,19 @@ interface articleProps {
 export default function ArticleLink(articleProp: articleProps) {
     const articleArr: articleObj[] = articleProp.articleInfo
     return (
-        <List sx={{ width: '100%', }}>
+        <List>
             {
                 articleArr.sort(
                     (a, b) => {
                         return b.header.publishDate - a.header.publishDate;
                     }
                 ).map((x, xIndex) => (
-                    <ListItem alignItems="flex-start" key={xIndex}>
-                        <Box
-                            href={x.header.url}
-                            component={Link}
-                            sx={{ width: '100%' }}
-                        >
+                    <Box
+                        href={x.header.url}
+                        component={Link}
+                        key={xIndex}
+                    >
+                        <ListItem alignItems="flex-start" sx={{ p: 0 }}>
                             <ListItemButton>
                                 <ListItemAvatar>
                                     <Avatar alt={x.header.imageAlt} src={x.header.imageSrc} />
@@ -57,10 +57,11 @@ export default function ArticleLink(articleProp: articleProps) {
                                     }
                                 />
                             </ListItemButton>
-                        </Box>
-                    </ListItem>
+                        </ListItem>
+                    </Box>
                 ))
             }
+
         </List>
     )
 }

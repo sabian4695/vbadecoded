@@ -54,7 +54,7 @@ export default function Home() {
 
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
-          <Box sx={{ borderRadius: '10px', p: 3, m: 5, textAlign: 'center' }}>
+          <Box sx={{ borderRadius: '10px', p: 3, m: 2, textAlign: 'center' }}>
             <Typography variant="h3" component="h1">
               Welcome to VBA Decoded!
             </Typography>
@@ -70,48 +70,43 @@ export default function Home() {
 
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
-          <Paper elevation={1} sx={{ borderRadius: '10px', p: 3, m: 5 }}>
-            <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
-              <Typography variant="h5" color='text.secondary'>Content!</Typography>
-              <List>
-                <ListItemButton href='/ms-access-vba'>
-                  <ListItemAvatar>
-                    <Avatar>
-                      <AccountTreeIcon />
-                    </Avatar>
-                  </ListItemAvatar>
-                  <ListItemText primary="MS Access Articles" secondary="Find information on MS Access Databases" />
-                </ListItemButton>
-                <ListItemButton href='/vba'>
-                  <ListItemAvatar>
-                    <Avatar>
-                      <AccountTreeIcon />
-                    </Avatar>
-                  </ListItemAvatar>
-                  <ListItemText primary="VBA Articles" secondary="Find information on VBA" />
-                </ListItemButton>
-                <ListItemButton href='https://www.youtube.com/@VBADecoded'>
-                  <ListItemAvatar>
-                    <Avatar>
-                      <InsertLinkIcon />
-                    </Avatar>
-                  </ListItemAvatar>
-                  <ListItemText primary="YouTube" secondary="Lots of the articles include YouTube videos showing the process" />
-                </ListItemButton>
-              </List>
-
-            </Stack>
+          <Paper elevation={1} sx={{ borderRadius: '10px', py: 3, m: 2, textAlign: 'center', alignItems: 'center', justifyContent: 'center' }}>
+            <Typography variant="h5" color='text.secondary'>Content!</Typography>
+            <List>
+              <ListItemButton href='/ms-access-vba'>
+                <ListItemAvatar>
+                  <Avatar>
+                    <AccountTreeIcon />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText primary="MS Access Articles" secondary="Find information on MS Access Databases" />
+              </ListItemButton>
+              <ListItemButton href='/vba'>
+                <ListItemAvatar>
+                  <Avatar>
+                    <AccountTreeIcon />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText primary="VBA Articles" secondary="Find information on VBA" />
+              </ListItemButton>
+              <ListItemButton href='https://www.youtube.com/@VBADecoded'>
+                <ListItemAvatar>
+                  <Avatar>
+                    <InsertLinkIcon />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText primary="YouTube" secondary="Lots of the articles include YouTube videos showing the process" />
+              </ListItemButton>
+            </List>
           </Paper>
         </Grow>
       </Grid>
 
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
-          <Paper elevation={1} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
-            <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
-              <Typography variant="h5" color='text.secondary'>Latest Articles</Typography>
-              <ArticleLink articleInfo={allArticles} />
-            </Stack>
+          <Paper elevation={1} sx={{ borderRadius: '10px', py: 3, m: 2, textAlign: 'center' }}>
+            <Typography variant="h5" color='text.secondary'>Latest Articles</Typography>
+            <ArticleLink articleInfo={allArticles} />
           </Paper>
         </Grow>
       </Grid>
