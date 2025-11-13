@@ -9,13 +9,16 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
-import InsertLinkIcon from '@mui/icons-material/InsertLink';
 import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
 import ListItemButton from '@mui/material/ListItemButton';
 import type { Metadata } from 'next'
 import { articleObj } from "@/misc/articleTypes";
 import ArticleLink from "@/misc/articleLink";
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import CodeIcon from '@mui/icons-material/Code';
+
+import { red, grey } from '@mui/material/colors';
 
 import { allArticles as aVbaArticles } from './ms-access-vba/page'
 import { allArticles as vbaArticles } from './vba/page'
@@ -54,17 +57,17 @@ export default function Home() {
 
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
-          <Box sx={{ borderRadius: '10px', p: 3, m: 2, textAlign: 'center' }}>
+          <Stack sx={{ borderRadius: '10px', p: 3, m: 2, textAlign: 'center' }} spacing={3}>
             <Typography variant="h3" component="h1">
-              Welcome to VBA Decoded!
+              Your modern resource for VBA and MS Access
             </Typography>
-            <Typography variant="h5">
-              Your in depth and modern resource for VBA.
+            <Typography variant="body1" sx={{ textAlign: 'left' }}>
+              MS Access development is NOT dead. Quite the contrary. It is still a cheap, quick, and effective way to develop multi-user applications, especially within organizations.
             </Typography>
-            <Typography variant="h6">
-              Much of the content is focused on Microsoft Access VBA. But, there is also Excel, VB Scripts and even some Batch file contents thrown in there.
+            <Typography variant="body1" sx={{ textAlign: 'left' }}>
+              There are also many downsides to MS Access development - my goal is to polish some of the sticking spots.
             </Typography>
-          </Box>
+          </Stack>
         </Grow>
       </Grid>
 
@@ -75,24 +78,20 @@ export default function Home() {
             <List>
               <ListItemButton href='/ms-access-vba'>
                 <ListItemAvatar>
-                  <Avatar>
-                    <AccountTreeIcon />
-                  </Avatar>
+                  <Avatar src="/images/ms_access_logo.svg" />
                 </ListItemAvatar>
                 <ListItemText primary="MS Access Articles" secondary="Find information on MS Access Databases" />
               </ListItemButton>
               <ListItemButton href='/vba'>
                 <ListItemAvatar>
-                  <Avatar>
-                    <AccountTreeIcon />
-                  </Avatar>
+                  <Avatar src='/images/vba.svg' sx={{ bgcolor: grey[800] }} />
                 </ListItemAvatar>
                 <ListItemText primary="VBA Articles" secondary="Find information on VBA" />
               </ListItemButton>
               <ListItemButton href='https://www.youtube.com/@VBADecoded'>
                 <ListItemAvatar>
-                  <Avatar>
-                    <InsertLinkIcon />
+                  <Avatar sx={{ bgcolor: red[400] }} >
+                    <YouTubeIcon />
                   </Avatar>
                 </ListItemAvatar>
                 <ListItemText primary="YouTube" secondary="Lots of the articles include YouTube videos showing the process" />

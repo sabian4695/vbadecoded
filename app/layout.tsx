@@ -21,6 +21,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import Grid from '@mui/material/Grid';
 
+import Icon from "@mui/material/Icon"
+
 const primaryMain = '#5f8fa5ff'
 const secondaryMain = '#698679'
 
@@ -67,6 +69,12 @@ if (global?.window !== undefined) {
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+
+  const svgIcon = (
+    <Icon>
+      <img alt="vba" src="/images/vba.svg" />
+    </Icon>
+  );
 
   const [themeMode, setThemeMode] = React.useState<String | any>(initialThemeMode)
   const [theme, setTheme] = React.useState<themeType>(themes.darkTheme);
@@ -123,8 +131,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </Typography>
                 </Box>
                 <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                  <Button component={Link} href='/ms-access-vba' variant='text' color='inherit' sx={{ mx: 1 }}>MS Access + VBA</Button>
-                  <Button component={Link} href='/vba' variant='text' color='inherit' sx={{ mx: 1 }}>General VBA</Button>
+                  <Button component={Link} href='/ms-access-vba' variant='text' color='inherit' sx={{ mx: 1 }}>
+                    <Image height='25'
+                      width='25'
+                      style={{ width: '25px', height: 'auto', margin: 5 }}
+                      src='/images/ms_access_logo.svg'
+                      alt='VBA Decoded Logo'
+                      loading="lazy" />
+                    MS Access + VBA</Button>
+                  <Button component={Link} href='/vba' variant='text' color='inherit' sx={{ mx: 1 }}><Image height='30'
+                    width='25'
+                    style={{ width: '25px', height: 'auto', margin: 5 }}
+                    src='/images/vba.svg'
+                    alt='VBA Decoded Logo'
+                    loading="lazy" />
+                    General VBA</Button>
                 </Box>
                 <IconButton
                   color='inherit'
