@@ -68,11 +68,9 @@ export default function Home() {
 
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
-          <Paper elevation={1} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
-            <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
-              <Typography variant="h5" color='text.secondary'>All General VBA Articles:</Typography>
-              <ArticleLink articleInfo={allArticles} />
-            </Stack>
+          <Paper elevation={1} sx={{ borderRadius: '10px', py: 3, m: 2, textAlign: 'center' }}>
+            <Typography variant="h5" color='text.secondary'>All General VBA Articles:</Typography>
+            <ArticleLink articleInfo={allArticles} />
           </Paper>
         </Grow>
       </Grid>
