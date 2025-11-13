@@ -6,9 +6,8 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
-import Link from 'next/link'
-import Button from '@mui/material/Button';
 import { articleObj } from "@/misc/articleTypes";
+import ArticleLink from "@/misc/articleLink";
 
 import { fullArticle as vbaDarkModeArticle } from './vba-editor-dark-mode/page'
 
@@ -69,20 +68,10 @@ export default function Home() {
 
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
-          <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
+          <Paper elevation={1} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
               <Typography variant="h5" color='text.secondary'>All General VBA Articles:</Typography>
-              <Stack>
-                {allArticles.sort(
-                  (a, b) => {
-                    return b.header.publishDate - a.header.publishDate;
-                  }
-                ).map((x, xIndex) => (
-                  <Button key={xIndex} href={x.header.url} variant='text' size='large' color='inherit' sx={{ textDecoration: 'underline' }} component={Link}>
-                    {x.header.title}
-                  </Button>
-                ))}
-              </Stack>
+              <ArticleLink articleInfo={allArticles} />
             </Stack>
           </Paper>
         </Grow>
