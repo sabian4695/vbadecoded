@@ -115,7 +115,7 @@ Set acc = Nothing
 MsgBox "Done!"`
 
 const headerData: headerObj = {
-  title: 'Force Re-Enable Shift Key Bypass on a Microsoft Access Database',
+  title: 'Force Re-Enable Shift Key Bypass on a MS Access Database',
   subTitle: 'Let\'s bust it open!',
   note: 'Written by Jacob, October 2025',
   imageSrc: '/images/jacob_brown.jpg',

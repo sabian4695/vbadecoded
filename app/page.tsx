@@ -13,10 +13,9 @@ import InsertLinkIcon from '@mui/icons-material/InsertLink';
 import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
 import ListItemButton from '@mui/material/ListItemButton';
-import Link from 'next/link'
-import Button from '@mui/material/Button';
 import type { Metadata } from 'next'
 import { articleObj } from "@/misc/articleTypes";
+import ArticleLink from "@/misc/articleLink";
 
 import { allArticles as aVbaArticles } from './ms-access-vba/page'
 import { allArticles as vbaArticles } from './vba/page'
@@ -30,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <Grid sx={{ m: { xs: 0, md: 2 }, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', justifySelf: 'center' }} container>
+    <Grid sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} spacing={3} container>
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
           <Box sx={{ textAlign: 'center' }}>
@@ -71,37 +70,36 @@ export default function Home() {
 
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
-          <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 5 }}>
+          <Paper elevation={1} sx={{ borderRadius: '10px', p: 3, m: 5 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
               <Typography variant="h5" color='text.secondary'>Content!</Typography>
-              <Box>
-                <List sx={{ bgcolor: 'background.paper' }}>
-                  <ListItemButton href='/ms-access-vba'>
-                    <ListItemAvatar>
-                      <Avatar>
-                        <AccountTreeIcon />
-                      </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText primary="MS Access Articles" secondary="Find information on MS Access Databases" />
-                  </ListItemButton>
-                  <ListItemButton href='/vba'>
-                    <ListItemAvatar>
-                      <Avatar>
-                        <AccountTreeIcon />
-                      </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText primary="VBA Articles" secondary="Find information on VBA" />
-                  </ListItemButton>
-                  <ListItemButton href='https://www.youtube.com/@VBADecoded'>
-                    <ListItemAvatar>
-                      <Avatar>
-                        <InsertLinkIcon />
-                      </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText primary="YouTube" secondary="Lots of the articles include YouTube videos showing the process" />
-                  </ListItemButton>
-                </List>
-              </Box>
+              <List>
+                <ListItemButton href='/ms-access-vba'>
+                  <ListItemAvatar>
+                    <Avatar>
+                      <AccountTreeIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary="MS Access Articles" secondary="Find information on MS Access Databases" />
+                </ListItemButton>
+                <ListItemButton href='/vba'>
+                  <ListItemAvatar>
+                    <Avatar>
+                      <AccountTreeIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary="VBA Articles" secondary="Find information on VBA" />
+                </ListItemButton>
+                <ListItemButton href='https://www.youtube.com/@VBADecoded'>
+                  <ListItemAvatar>
+                    <Avatar>
+                      <InsertLinkIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary="YouTube" secondary="Lots of the articles include YouTube videos showing the process" />
+                </ListItemButton>
+              </List>
+
             </Stack>
           </Paper>
         </Grow>
@@ -109,20 +107,10 @@ export default function Home() {
 
       <Grid size={{ xs: 12, md: 6 }}>
         <Grow in={true}>
-          <Paper elevation={3} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
+          <Paper elevation={1} sx={{ borderRadius: '10px', p: 3, m: 2 }}>
             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={3}>
               <Typography variant="h5" color='text.secondary'>Latest Articles</Typography>
-              <Stack>
-                {allArticles.sort(
-                  (a, b) => {
-                    return b.header.publishDate - a.header.publishDate;
-                  }
-                ).map((x, xIndex) => (
-                  <Button key={xIndex} href={x.header.url} variant='text' size='large' color='inherit' sx={{ textDecoration: 'underline' }} component={Link}>
-                    {x.header.title}
-                  </Button>
-                ))}
-              </Stack>
+              <ArticleLink articleInfo={allArticles} />
             </Stack>
           </Paper>
         </Grow>

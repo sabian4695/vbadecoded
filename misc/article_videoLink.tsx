@@ -17,7 +17,14 @@ export default function VideoLink(videoProp: videoProps) {
         <Grid size={{ xs: 12 }}>
             <Grow in={true}>
                 <Box sx={{ textAlign: 'center' }}>
-                    <Button href={videoObj.link} variant='outlined' color='secondary' target='_blank' component={Link}>
+                    <Button
+                        href={videoObj.link}
+                        variant='contained'
+                        color='secondary'
+                        target='_blank'
+                        component={Link}
+                        sx={{ textTransform: 'none' }}
+                    >
                         {videoObj.title}
                     </Button>
                 </Box>
