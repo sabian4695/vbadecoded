@@ -18,7 +18,7 @@ export const allArticles: articleObj[] = [
   enableShiftArticle,
   encryptArticle,
   findPwArticle,
-  //grabLatestVersion
+  grabLatestVersion
 ]
 
 import type { Metadata } from 'next'

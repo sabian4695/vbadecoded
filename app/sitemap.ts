@@ -34,5 +34,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: 'https://www.vbadecoded.com/ms-access-vba/find-encryption-password',
             lastModified: new Date(),
         },
+        {
+            url: 'https://www.vbadecoded.com/ms-access-vba/always-grab-latest-version',
+            lastModified: new Date(),
+        },
     ]
 }
