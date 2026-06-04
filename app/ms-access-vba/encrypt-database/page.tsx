@@ -15,8 +15,6 @@ export const metadata: Metadata = {
   description: 'Quickly and easily encrypt an MS Access Database.',
 }
 
-const paperSx: any = { borderRadius: '10px', p: 1, m: 1 }
-
 const headerData: headerObj = {
   title: 'Encrypt an MS Access Database',
   subTitle: 'Let\'s secure this thing.',

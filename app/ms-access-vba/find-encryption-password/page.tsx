@@ -4,9 +4,8 @@ import dayjs from "dayjs";
 
 import ArticleHeader from "@/misc/article_header";
 import ArticleCard from '@/misc/article_card'
-import VideoLink from "@/misc/article_videoLink";
 
-import { headerObj, cardObj, videoLinkObj, articleObj } from '@/misc/articleTypes'
+import { headerObj, cardObj, articleObj } from '@/misc/articleTypes'
 
 import type { Metadata } from 'next'
 
@@ -14,8 +13,6 @@ export const metadata: Metadata = {
   title: 'Find Encryption Password',
   description: 'Find the password of an encrypted MS Access Database',
 }
-
-const paperSx: any = { borderRadius: '10px', p: 1, m: 1 }
 
 const code0: string = `Function getPassword()
  

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: 'Have users always get the latest version of your MS Access database.',
 }
 
-let codeOg = `@echo off
+const codeOg = `@echo off
 IF exist myDirName ( echo "C:\\\databaseName\\\" exists ) ELSE ( mkdir "C:\\\databaseName\\\" )
 copy \\\\standardCopyLocation\databaseName.accdb "C:\\\databaseName\\\databaseName.accdb"
 start "msaccess.exe" "C:\\\databaseName\\\databaseName.accdb"`
@@ -176,8 +176,6 @@ export const fullArticle: articleObj = {
   content: articleData
 }
 
-
-const paperSx: any = { borderRadius: '10px', p: 1, m: 1 }
 
 export default function Home() {
   return (

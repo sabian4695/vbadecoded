@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: 'Quickly and easily enable shift-bypass on any MS Access Database.',
 }
 
-let codeOg = `Function enableShift()
+const codeOg = `Function enableShift()
   
 'initialize variables
 Dim db, acc
@@ -41,7 +41,7 @@ MsgBox "Done!"
 
 End Function`
 
-let code0 = `Function enableShift()
+const code0 = `Function enableShift()
 On Error GoTo errEnableShift
 
 'initialize variables
@@ -81,7 +81,7 @@ Set acc = Nothing
 
 End Function`
 
-let code1 = `On Error Resume Next
+const code1 = `On Error Resume Next
  
 Const conPropNotFound = 3270
 
@@ -282,8 +282,6 @@ export const fullArticle: articleObj = {
   content: articleData
 }
 
-
-const paperSx: any = { borderRadius: '10px', p: 1, m: 1 }
 
 export default function Home() {
   return (

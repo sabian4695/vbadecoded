@@ -8,45 +8,47 @@ import Paper from '@mui/material/Paper';
 
 hljs.registerLanguage('vbnet', vbnet);
 
-interface childrenType {
+interface CodeBlockProps {
     code: string
 }
 
-export default function CodeBlock(children: childrenType) {
+export default function CodeBlock({ code }: CodeBlockProps) {
     const [isCopied, setIsCopied] = React.useState(false);
+
+    const highlightedHtml = React.useMemo(() => {
+        const result = hljs.highlight(code, { language: 'vbnet' });
+        return result.value;
+    }, [code]);
 
     const handleCopy = React.useCallback(async () => {
         try {
-            await navigator.clipboard.writeText(children.code);
+            await navigator.clipboard.writeText(code);
             setIsCopied(true);
-            setTimeout(() => setIsCopied(false), 2000); // Reset "Copied!" state after 2 seconds
+            setTimeout(() => setIsCopied(false), 2000);
         } catch (err) {
             console.error('Failed to copy: ', err);
-            // Handle potential errors, e.g., show an error message
         }
-    }, [children.code]);
+    }, [code]);
 
-    React.useEffect(() => {
-        hljs.initHighlighting();
-    }, []);
     return (
-        <>
-            <Paper
-                elevation={1}
-                sx={{ maxWidth: '100%', borderRadius: '10px', p: 2, m: 1, alignSelf: 'center', justifySelf: 'center' }}
-            >
-                <Chip
-                    clickable
-                    variant="outlined"
-                    label={isCopied ? 'Copied!' : 'Copy to Clipboard'}
-                    onClick={handleCopy}
-                    icon={<ContentCopyIcon />}
-                    sx={{ m: 0.5 }}
+        <Paper
+            elevation={1}
+            sx={{ maxWidth: '100%', borderRadius: '10px', p: 2, m: 1, alignSelf: 'center', justifySelf: 'center', overflow: 'auto' }}
+        >
+            <Chip
+                clickable
+                variant="outlined"
+                label={isCopied ? 'Copied!' : 'Copy to Clipboard'}
+                onClick={handleCopy}
+                icon={<ContentCopyIcon />}
+                sx={{ m: 0.5 }}
+            />
+            <pre>
+                <code
+                    className="hljs"
+                    dangerouslySetInnerHTML={{ __html: highlightedHtml }}
                 />
-                <pre><code className="vbscript">
-                    {children.code}
-                </code></pre>
-            </Paper>
-        </>
+            </pre>
+        </Paper>
     )
 }

@@ -4,9 +4,8 @@ import dayjs from "dayjs";
 
 import ArticleHeader from "@/misc/article_header";
 import ArticleCard from '@/misc/article_card'
-import VideoLink from "@/misc/article_videoLink";
 
-import { headerObj, cardObj, videoLinkObj, articleObj } from '@/misc/articleTypes'
+import { headerObj, cardObj, articleObj } from '@/misc/articleTypes'
 
 const code0: string = `Function getAvatar(userName As String, initials As String)
 On Error GoTo Err_Handler
@@ -71,8 +70,6 @@ export const metadata: Metadata = {
   description: 'Switch your theme to Dark Mode on the default VBA Editor.',
 }
 
-const paperSx: any = { borderRadius: '10px', p: 1, m: 1 }
-
 const articleData: cardObj[] = [
   {
     title: 'The ugly VBE',
@@ -132,11 +129,6 @@ const articleData: cardObj[] = [
   },
 ]
 
-const videoDataObj: videoLinkObj = {
-  title: 'Click here to watch the YouTube video!',
-  link: ''
-}
-
 export const fullArticle: articleObj = {
   header: headerData,
   content: articleData
@@ -148,8 +140,6 @@ export default function Home() {
     <Grid sx={{ m: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} spacing={3} container>
 
       <ArticleHeader headerInfo={headerData} />
-
-      {/* <VideoLink videoInfo={videoDataObj} /> */}
 
       {articleData.map((x, xIndex) => (
         <ArticleCard cardInfo={x} key={xIndex} />

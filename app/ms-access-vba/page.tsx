@@ -1,13 +1,12 @@
-import Image from "next/image";
 import React from "react";
 import Typography from "@mui/material/Typography";
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
-import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
 import { articleObj } from "@/misc/articleTypes";
 import ArticleLink from "@/misc/articleLink";
+import PageHero from "@/misc/pageHero";
 
 import { fullArticle as encryptArticle } from "./encrypt-database/page";
 import { fullArticle as enableShiftArticle } from "./force-reenable-shift-key-bypass/page";
@@ -30,58 +29,30 @@ export const metadata: Metadata = {
   description: 'Articles for developers on how to best use MS Access.',
 }
 
-export default function Home() {
+export default function MSAccessVBAPage() {
   return (
     <Grid sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} spacing={3} container>
-      <Grid size={{ xs: 12, md: 6 }}>
-        <Grow in={true}>
-          <Box sx={{ textAlign: 'center', minHeight: '500px', alignContent: 'center' }}>
-            <Image
-              height='300'
-              width='300'
-              src='/images/ms_access_logo.svg'
-              style={{ width: '150px', height: 'auto' }}
-              alt='Microsoft Access Logo'
-              loading="lazy"
-            />
-            <Typography
-              sx={{ fontWeight: '100', letterSpacing: 7 }}
-              variant={'h3'}
-              color='text.secondary'
-              component="h1"
-            >
-              Microsoft Access + VBA
-            </Typography>
+
+      {/* Hero - full width, no fixed minHeight */}
+      <PageHero
+        logoSrc="/images/ms_access_logo.svg"
+        logoAlt="Microsoft Access Logo"
+        title="Microsoft Access + VBA"
+        subtitle="My bread and butter!"
+        description="MS Access specific VBA is where my knowledge goes a bit deeper. Though some of the articles may not be about VBA..."
+      />
+
+      {/* Article list - full width */}
+      <Grid size={{ xs: 12 }}>
+        <Paper elevation={1} sx={{ borderRadius: '10px', py: 3, px: 2, textAlign: 'center' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1, mb: 1 }}>
+            <Typography variant="h5" color="text.secondary">All MS Access VBA Articles</Typography>
+            <Chip label={`${allArticles.length} articles`} size="small" />
           </Box>
-        </Grow>
+          <ArticleLink articleInfo={allArticles} />
+        </Paper>
       </Grid>
 
-      <Grid size={{ xs: 12, md: 6 }}>
-        <Grow in={true}>
-          <Box sx={{ borderRadius: '10px', p: 3, m: 2, textAlign: 'center' }}>
-            <Stack spacing={3}>
-              <Typography variant="h3">
-                My bread and butter!
-              </Typography>
-              <Typography variant="h5">
-                MS Access Specific VBA is where my knowledge goes a bit deeper.
-              </Typography>
-              <Typography variant="body2">
-                (Though some of the articles may not be about VBA...)
-              </Typography>
-            </Stack>
-          </Box>
-        </Grow>
-      </Grid>
-
-      <Grid size={{ xs: 12, md: 6 }}>
-        <Grow in={true}>
-          <Paper elevation={1} sx={{ borderRadius: '10px', py: 3, m: 2, textAlign: 'center' }}>
-            <Typography variant="h5" color='text.secondary'>All MS Access VBA Articles:</Typography>
-            <ArticleLink articleInfo={allArticles} />
-          </Paper>
-        </Grow>
-      </Grid>
     </Grid>
   );
 }
