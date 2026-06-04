@@ -13,11 +13,6 @@ export const metadata: Metadata = {
   description: `That's right. User-set themes in MS Access (Dark Mode included!)`,
 }
 
-let codeOg = `@echo off
-IF exist myDirName ( echo "C:\\\databaseName\\\" exists ) ELSE ( mkdir "C:\\\databaseName\\\" )
-copy \\\\standardCopyLocation\databaseName.accdb "C:\\\databaseName\\\databaseName.accdb"
-start "msaccess.exe" "C:\\\databaseName\\\databaseName.accdb"`
-
 const headerData: headerObj = {
   title: 'Customizable, Run-Time User Themes in MS Access',
   subTitle: `That's right. Dark Mode included!`,
@@ -300,8 +295,6 @@ export const fullArticle: articleObj = {
   content: articleData
 }
 
-
-const paperSx: any = { borderRadius: '10px', p: 1, m: 1 }
 
 export default function Home() {
   return (

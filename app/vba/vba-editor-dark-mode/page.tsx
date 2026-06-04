@@ -25,8 +25,6 @@ export const metadata: Metadata = {
   description: 'Switch your theme to Dark Mode on the default VBA Editor.',
 }
 
-const paperSx: any = { borderRadius: '10px', p: 1, m: 1 }
-
 const articleData: cardObj[] = [
   {
     title: 'The ugly VBE',

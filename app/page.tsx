@@ -1,22 +1,19 @@
-import Image from "next/image";
 import React from "react";
 import Typography from "@mui/material/Typography";
 import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import List from '@mui/material/List';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
-import AccountTreeIcon from '@mui/icons-material/AccountTree';
-import Grow from '@mui/material/Grow';
 import Grid from '@mui/material/Grid';
 import ListItemButton from '@mui/material/ListItemButton';
+import Chip from '@mui/material/Chip';
 import type { Metadata } from 'next'
 import { articleObj } from "@/misc/articleTypes";
 import ArticleLink from "@/misc/articleLink";
+import PageHero from "@/misc/pageHero";
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import CodeIcon from '@mui/icons-material/Code';
 
 import { red, grey } from '@mui/material/colors';
 
@@ -30,84 +27,57 @@ export const metadata: Metadata = {
   description: 'A modern and in-depth resource for VBA and MS Access Development.',
 }
 
-export default function Home() {
+export default function HomePage() {
   return (
     <Grid sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: '1200px', justifySelf: 'center' }} spacing={3} container>
-      <Grid size={{ xs: 12, md: 6 }}>
-        <Grow in={true}>
-          <Box sx={{ textAlign: 'center' }}>
-            <Image
-              height='300'
-              width='300'
-              style={{ width: '300px', height: 'auto' }}
-              src='/images/logo.svg'
-              alt='VBA Decoded Logo'
-              loading="lazy"
-            />
-            <Typography
-              sx={{ fontWeight: '100', letterSpacing: 7 }}
-              variant={'h3'}
-              color='text.secondary'
-            >
-              VBA Decoded
-            </Typography>
+
+      {/* Hero - full width */}
+      <PageHero
+        logoSrc="/images/logo.svg"
+        logoAlt="VBA Decoded Logo"
+        title="VBA Decoded"
+        subtitle="Your modern resource for VBA and MS Access"
+        description="MS Access development is NOT dead. It is still a cheap, quick, and effective way to develop multi-user applications, especially within organizations."
+      />
+
+      {/* Navigation - full width */}
+      <Grid size={{ xs: 12 }}>
+        <Paper elevation={1} sx={{ borderRadius: '10px', py: 3, px: 2, textAlign: 'center' }}>
+          <Typography variant="h5" color="text.secondary" sx={{ mb: 1 }}>Explore</Typography>
+          <List sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'center' }}>
+            <ListItemButton href='/ms-access-vba' sx={{ maxWidth: { md: '300px' } }}>
+              <ListItemAvatar>
+                <Avatar src="/images/ms_access_logo.svg" />
+              </ListItemAvatar>
+              <ListItemText primary="MS Access Articles" secondary="MS Access specific tips and tools" />
+            </ListItemButton>
+            <ListItemButton href='/vba' sx={{ maxWidth: { md: '300px' } }}>
+              <ListItemAvatar>
+                <Avatar src='/images/vba.svg' sx={{ bgcolor: grey[800] }} />
+              </ListItemAvatar>
+              <ListItemText primary="VBA Articles" secondary="General VBA techniques" />
+            </ListItemButton>
+            <ListItemButton href='https://www.youtube.com/@VBADecoded' sx={{ maxWidth: { md: '300px' } }}>
+              <ListItemAvatar>
+                <Avatar sx={{ bgcolor: red[400] }}>
+                  <YouTubeIcon />
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText primary="YouTube" secondary="Video walkthroughs" />
+            </ListItemButton>
+          </List>
+        </Paper>
+      </Grid>
+
+      {/* Latest Articles - full width */}
+      <Grid size={{ xs: 12 }}>
+        <Paper elevation={1} sx={{ borderRadius: '10px', py: 3, px: 2, textAlign: 'center' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1, mb: 1 }}>
+            <Typography variant="h5" color="text.secondary">Latest Articles</Typography>
+            <Chip label={`${allArticles.length} total`} size="small" />
           </Box>
-        </Grow>
-      </Grid>
-
-      <Grid size={{ xs: 12, md: 6 }}>
-        <Grow in={true}>
-          <Stack sx={{ borderRadius: '10px', p: 3, m: 2, textAlign: 'center' }} spacing={3}>
-            <Typography variant="h3" component="h1">
-              Your modern resource for VBA and MS Access
-            </Typography>
-            <Typography variant="body1" sx={{ textAlign: 'left' }}>
-              MS Access development is NOT dead. Quite the contrary. It is still a cheap, quick, and effective way to develop multi-user applications, especially within organizations.
-            </Typography>
-            <Typography variant="body1" sx={{ textAlign: 'left' }}>
-              There are also many downsides to MS Access development - my goal is to polish some of the sticking spots.
-            </Typography>
-          </Stack>
-        </Grow>
-      </Grid>
-
-      <Grid size={{ xs: 12, md: 6 }}>
-        <Grow in={true}>
-          <Paper elevation={1} sx={{ borderRadius: '10px', py: 3, m: 2, textAlign: 'center', alignItems: 'center', justifyContent: 'center' }}>
-            <Typography variant="h5" color='text.secondary'>Content!</Typography>
-            <List>
-              <ListItemButton href='/ms-access-vba'>
-                <ListItemAvatar>
-                  <Avatar src="/images/ms_access_logo.svg" />
-                </ListItemAvatar>
-                <ListItemText primary="MS Access Articles" secondary="Find information on MS Access Databases" />
-              </ListItemButton>
-              <ListItemButton href='/vba'>
-                <ListItemAvatar>
-                  <Avatar src='/images/vba.svg' sx={{ bgcolor: grey[800] }} />
-                </ListItemAvatar>
-                <ListItemText primary="VBA Articles" secondary="Find information on VBA" />
-              </ListItemButton>
-              <ListItemButton href='https://www.youtube.com/@VBADecoded'>
-                <ListItemAvatar>
-                  <Avatar sx={{ bgcolor: red[400] }} >
-                    <YouTubeIcon />
-                  </Avatar>
-                </ListItemAvatar>
-                <ListItemText primary="YouTube" secondary="Lots of the articles include YouTube videos showing the process" />
-              </ListItemButton>
-            </List>
-          </Paper>
-        </Grow>
-      </Grid>
-
-      <Grid size={{ xs: 12, md: 6 }}>
-        <Grow in={true}>
-          <Paper elevation={1} sx={{ borderRadius: '10px', py: 3, m: 2, textAlign: 'center' }}>
-            <Typography variant="h5" color='text.secondary'>Latest Articles</Typography>
-            <ArticleLink articleInfo={allArticles} />
-          </Paper>
-        </Grow>
+          <ArticleLink articleInfo={allArticles} />
+        </Paper>
       </Grid>
 
     </Grid>

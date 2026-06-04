@@ -34,6 +34,7 @@ export interface cardObj {
 export interface headerObj {
     title: string,
     subTitle: string,
+    description?: string,
     note: string,
     imageSrc: string,
     imageAlt: string,
